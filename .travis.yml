@@ -1,11 +1,9 @@
-language: python
 
-env:
+matrix:
+  env:
     - TOX_ENV=py36-django211
     - TOX_ENV=coverage_combine
     - TOX_ENV=docs
-
-matrix:
   fast_finish: true
   allow_failures:
     - env: TOX_ENV=coverage_combine
