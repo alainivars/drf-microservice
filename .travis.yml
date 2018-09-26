@@ -3,10 +3,8 @@ language: python
 sudo: false
 
 env:
+    - TOX_ENV=py35-django211
     - TOX_ENV=py36-django211
-    - TOX_ENV=py37-django211
-    - TOX_ENV=py36-djangomaster
-    - TOX_ENV=py37-djangomaster
     - TOX_ENV=coverage_combine
     - TOX_ENV=docs
 
@@ -15,8 +13,7 @@ matrix:
   allow_failures:
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs
-    - env: TOX_ENV=py36-djangomaster
-    - env: TOX_ENV=py37-djangomaster
+    - env: TOX_ENV=py35-django211
 
 before_install:
     - pip install pytest pytest-cov
