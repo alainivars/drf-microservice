@@ -1,8 +1,6 @@
 language: python
 
 env:
-    - TOX_ENV=py35-django211
-    - TOX_ENV=py36-django211
     - TOX_ENV=coverage_combine
     - TOX_ENV=docs
 
@@ -11,15 +9,7 @@ matrix:
   allow_failures:
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs
-    - env: TOX_ENV=py35-django211
   include:
-    - language: python
-      python: "3.5"
-      install:
-        - pip install tox
-      script:
-        - tox -e $TOX_ENV
-      sudo: false
     - language: python
       python: "3.6"
       install:
@@ -33,7 +23,7 @@ before_install:
     - pip install coveralls
 
 install:
-  - pip install tox
+    - pip install tox
 
 script:
     - tox -e $TOX_ENV
