@@ -1,7 +1,5 @@
 language: python
 
-sudo: false
-
 env:
     - TOX_ENV=py35-django211
     - TOX_ENV=py36-django211
@@ -14,6 +12,21 @@ matrix:
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs
     - env: TOX_ENV=py35-django211
+  include:
+    - language: python
+      python: "3.5"
+      install:
+        - pip install tox
+      script:
+        - tox -e $TOX_ENV
+      sudo: false
+    - language: python
+      python: "3.6"
+      install:
+        - pip install tox
+      script:
+        - tox -e $TOX_ENV
+      sudo: false
 
 before_install:
     - pip install pytest pytest-cov
@@ -25,9 +38,9 @@ install:
 script:
     - tox -e $TOX_ENV
 
-after_success:
-    - coveralls
-
 notifications:
     email:
         - alainivars@gmail.com
+
+after_success:
+    - coveralls
