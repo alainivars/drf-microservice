@@ -23,12 +23,6 @@ before_install:
     - pip install pytest pytest-cov
     - pip install coveralls
 
-install:
-    - pip install tox
-
-script:
-    - tox -e $TOX_ENV
-
 notifications:
     email:
         - alainivars@gmail.com
