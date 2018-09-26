@@ -1,29 +1,33 @@
+language: python
+python: "3.6"
 
-matrix:
-  env:
+sudo: false
+
+env:
     - TOX_ENV=py36-django211
     - TOX_ENV=coverage_combine
     - TOX_ENV=docs
+
+matrix:
   fast_finish: true
   allow_failures:
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs
-  include:
-    - language: python
-      python: "3.6"
-      install:
-        - pip install tox
-      script:
-        - tox -e $TOX_ENV
-      sudo: false
 
 before_install:
     - pip install pytest pytest-cov
     - pip install coveralls
 
+install:
+    - pip install tox
+
+script:
+    - tox -e $TOX_ENV
+
+after_success:
+    - coveralls
+
 notifications:
     email:
         - alainivars@gmail.com
 
-after_success:
-    - coveralls
