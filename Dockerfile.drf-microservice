@@ -1,0 +1,34 @@
+#
+# The doc: https://docs.docker.com/engine/reference/builder/#usage
+# Dockerfile-drf-microservice
+
+FROM python:3
+#FROM python:alpine3.6
+
+# Set an environment variable with the directory
+# where we'll be running the project
+ENV APP /drf-microservice
+
+# Create the directory and instruct Docker to operate
+# from there from now on
+RUN mkdir $APP
+WORKDIR $APP
+
+# Expose the port uWSGI will listen on
+EXPOSE 8000
+
+# Copy the requirements file in order to install
+# Python dependencies
+COPY requirements.txt .
+
+# Install Python dependencies
+#RUN pip install -r requirements.txt
+RUN python3 setup.py install
+
+# We copy the rest of the codebase into the image
+COPY . .
+
+# Finally, we run uWSGI with the ini file we
+# created earlier
+CMD ["uwsgi", "--ini", "drf-microservice.ini"]
+#CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:8000", "project:project"]

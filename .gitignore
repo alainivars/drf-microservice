@@ -102,3 +102,11 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# pycharm
+.idea/*
+
+# this project
+files/*
+tests.sqlite3
+pep8.txt
