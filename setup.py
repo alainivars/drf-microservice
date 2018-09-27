@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.md')) as f:
 
 setup(
     name='drf-microservice',
-    version='0.5.1',
+    version='0.5.2',
     author='Alain IVARS',
     author_email='alainivars@gmail.com',
     url='http://github.com/alainivars/drf-microservice',
