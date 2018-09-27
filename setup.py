@@ -5,10 +5,8 @@ from setuptools import setup, find_packages
 
 
 here = os.path.dirname(os.path.abspath(__file__))
-f = open(os.path.join(here, 'README.md'))
-long_description = f.read().strip()
-f.close()
-
+with open(os.path.join(here, 'README.md')) as f:
+    long_description = f.read().strip()
 
 setup(
     name='drf-microservice',
@@ -21,6 +19,7 @@ setup(
     ''',
     packages=find_packages(),
     long_description=long_description,
+    long_description_content_type='text/markdown',
     keywords='''
     django rest auth registration rest-framework django-registration api
     ''',
