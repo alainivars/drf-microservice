@@ -68,7 +68,8 @@ class FileAPI(APIView):
         :return: the file in json Base64 format
         """
         # http://www.django-rest-framework.org/api-guide/requests/#query_params
-        if 'name' not in request.query_params or not request.query_params['name']:
+        if 'name' not in request.query_params \
+                or not request.query_params['name']:
             return Response({'error': 'file Not found'}, status=422)
         else:
             name = request.query_params['name']
