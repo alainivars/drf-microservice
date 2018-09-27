@@ -29,6 +29,7 @@ setup(
     include_package_data=True,
     classifiers=[
         'Framework :: Django',
+        'License :: OSI Approved :: Apache License 2.0',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'Operating System :: OS Independent',
