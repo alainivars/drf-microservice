@@ -1,0 +1,8 @@
+django-setuptest
+pygments==2.2.0
+pytest==3.8.1
+pytest-django==3.4.3
+pytest-pep8
+pytest-cov
+coverage>=4.4
+pep8

@@ -1,5 +1,7 @@
 language: python
-python: "3.6"
+python:
+#  - "3.5"
+  - "3.6"
 
 sudo: false
 
@@ -9,7 +11,7 @@ env:
     - TOX_ENV=docs
 
 matrix:
-  fast_finish: true
+  #fast_finish: true
   allow_failures:
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs

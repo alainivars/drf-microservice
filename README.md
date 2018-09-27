@@ -3,9 +3,7 @@
 [![Documentation Status](https://readthedocs.org/projects/alpha-vantage/badge/?version=latest)](http://alpha-vantage.readthedocs.io/en/latest/?badge=latest)
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Percentage of issues still open")
-[![Test coverage status](https://coveralls.io/r/alainivars/drf-microservice?branch=master)](https://coveralls.io/repos/alainivars/drf-microservice/badge.svg?branch=master)
-[![Requirements Status](https://requires.io/github/alainivars/drf-microservice/requirements.svg?branch=master)](https://requires.io/github/alainivars/drf-microservice/requirements/?branch=master)
-[![pypi download](https://img.shields.io/pypi/dm/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
+[![Coverage Status](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
 [![python supported](https://img.shields.io/pypi/pyversions/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
 [![licence](https://img.shields.io/pypi/l/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
 [![PyPi version](https://img.shields.io/pypi/v//drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice)
@@ -21,6 +19,10 @@ A POC of a DRF microservice
 
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
 
+### Releases Notes
+
+    - 0.5.1: fix some document presentation on github and pypi
+    - 0.5.0: Initial publication version
 
 ### AWS secret required
 ```shell
@@ -100,6 +102,7 @@ docker-compose up
 ```
 
 ### DONE
+
     - support basic auth
     - support token auth
     - endpoint json file POST,GET
