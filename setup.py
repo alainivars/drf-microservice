@@ -14,6 +14,7 @@ setup(
     author='Alain IVARS',
     author_email='alainivars@gmail.com',
     url='http://github.com/alainivars/drf-microservice',
+    license='Apache License 2.0',
     description='''
     Create a REST API endpoints with Authentication and Registration
     ''',
