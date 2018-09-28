@@ -4,8 +4,8 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Percentage of issues still open")
 [![Coverage Status](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
-[![python supported](https://img.shields.io/pypi/pyversions/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
-[![licence](https://img.shields.io/pypi/l/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Code Health](https://landscape.io/github/alainivars/drf-microservice/master/landscape.svg?style=flat)](https://landscape.io/github/alainivars/drf-microservice/master)
 [![PyPi wheel](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
 
