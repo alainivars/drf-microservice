@@ -27,12 +27,18 @@ setup(
     zip_safe=False,
     test_suite='setuptest.setuptest.SetupTestSuite',
     include_package_data=True,
+    # https://pypi.org/classifiers/
     classifiers=[
-        'Framework :: Django',
-        'License :: OSI Approved :: Apache License 2.0',
+        'Development Status :: 2 - Pre-Alpha',
+        'Framework :: Django :: 2.1',
+        'License :: OSI Approved :: Apache License, Version 2.0 (Apache-2.0)',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'Operating System :: OS Independent',
-        'Topic :: Software Development'
+        'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+        'Topic :: Internet :: WWW/HTTP'
     ],
 )

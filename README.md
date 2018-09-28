@@ -6,9 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
 [![python supported](https://img.shields.io/pypi/pyversions/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
 [![licence](https://img.shields.io/pypi/l/drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice/)
-[![PyPi version](https://img.shields.io/pypi/v//drf-microservice.svg)](https://pypi.python.org/pypi/drf-microservice)
 [![Code Health](https://landscape.io/github/alainivars/drf-microservice/master/landscape.svg?style=flat)](https://landscape.io/github/alainivars/drf-microservice/master)
-[![Documentation status](https://readthedocs.org/projects/drf-microservice/badge/?version=latest)](https://readthedocs.org/projects/drf-microservice/?badge=latest)
 [![PyPi wheel](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
 
 
