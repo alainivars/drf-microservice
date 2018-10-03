@@ -54,10 +54,6 @@ curl --request POST \
   --url http://127.0.0.1:8000/rest-auth/login/ \
   --header 'authorization: Basic YWRtaW46YWRtaW4=' \
   --header 'content-type: application/json' \
-  --cookie 'csrftoken=Fx8pbhMZgdq2SjbC7uX6MQumyIqG3cRR0Eq2Ey76B5xriGQad7m0bp5L9Gypuefn; sessionid=vqzd339x21ofzgmt1sr0ekza81o9hvbu' \
-  --data '{
-	"username": "admin",
-	"password": "admin"
 }'
 ```
 Actually the default mode is "development" (same to the state of this project)
