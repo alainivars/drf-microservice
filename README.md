@@ -19,6 +19,7 @@ Something disturb you in the code? Don't hesitate to submit a pull request and c
 
 ### Releases Notes
 
+    - 0.5.2: fix dendencies security alert
     - 0.5.1: fix some document presentation on github and pypi
     - 0.5.0: Initial publication version
 
@@ -48,8 +49,16 @@ SECRET_KEY=xxx python manage.py test
 ## API
 To see the documentation for the API
 In development mode, login at
-```web
-http://127.0.0.1:8000/rest-auth/login/
+```shell
+curl --request POST \
+  --url http://127.0.0.1:8000/rest-auth/login/ \
+  --header 'authorization: Basic YWRtaW46YWRtaW4=' \
+  --header 'content-type: application/json' \
+  --cookie 'csrftoken=Fx8pbhMZgdq2SjbC7uX6MQumyIqG3cRR0Eq2Ey76B5xriGQad7m0bp5L9Gypuefn; sessionid=vqzd339x21ofzgmt1sr0ekza81o9hvbu' \
+  --data '{
+	"username": "admin",
+	"password": "admin"
+}'
 ```
 Actually the default mode is "development" (same to the state of this project)
 in that mode a default login is the the db with username='admin' password='admin'
