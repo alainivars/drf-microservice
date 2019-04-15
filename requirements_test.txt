@@ -2,7 +2,7 @@ django-setuptest
 pygments>=2.3.1
 pytest>=4.4.1
 pytest-django>=3.4.8
-pytest-pep8
+pytest-pep8>=1.0.6
 pytest-cov
-coverage>=4.4
+coverage>=4.5.3
 pep8
