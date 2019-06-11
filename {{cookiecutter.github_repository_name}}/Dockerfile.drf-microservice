@@ -1,13 +1,13 @@
 #
 # The doc: https://docs.docker.com/engine/reference/builder/#usage
-# Dockerfile-drf-microservice
+# Dockerfile-{{cookiecutter.github_repository_name}}
 
 FROM python:3
 #FROM python:alpine3.6
 
 # Set an environment variable with the directory
 # where we'll be running the project
-ENV APP /drf-microservice
+ENV APP /{{cookiecutter.github_repository_name}}
 
 # Create the directory and instruct Docker to operate
 # from there from now on
@@ -30,5 +30,5 @@ COPY . .
 
 # Finally, we run uWSGI with the ini file we
 # created earlier
-CMD ["uwsgi", "--ini", "drf-microservice.ini"]
+CMD ["uwsgi", "--ini", "{{cookiecutter.github_repository_name}}.ini"]
 #CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:8000", "project:project"]

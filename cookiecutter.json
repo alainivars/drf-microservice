@@ -1,0 +1,7 @@
+{
+    "github_username": "my-github-user-name",
+    "github_repository_name": "my-repository",
+    "app_name": "my_app",
+    "email": "my-email@my-domain.my",
+    "description": "The description of my drf app"
+}

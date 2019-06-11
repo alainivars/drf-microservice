@@ -30,5 +30,5 @@ after_success:
 
 notifications:
     email:
-        - alainivars@gmail.com
+        - {{cookiecutter.email}}
 

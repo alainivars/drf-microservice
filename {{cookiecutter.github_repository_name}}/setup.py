@@ -9,20 +9,21 @@ with open(os.path.join(here, 'README.md')) as f:
     long_description = f.read().strip()
 
 setup(
-    name='drf-microservice',
-    version='0.5.2',
+    name='{{cookiecutter.github_repository_name}}',
+    version='0.6.0',
     author='Alain IVARS',
-    author_email='alainivars@gmail.com',
-    url='http://github.com/alainivars/drf-microservice',
+    author_email='{{cookiecutter.email}}',
+    url='http://github.com/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}',
     license='Apache License 2.0',
     description='''
-    Create a REST API endpoints with Authentication and Registration
+    Create a REST API endpoints with Authentication and Registration.
+    Read the README.md for more information.
     ''',
     packages=find_packages(),
     long_description=long_description,
     long_description_content_type='text/markdown',
     keywords='''
-    django rest auth registration rest-framework django-registration api
+    django rest auth registration rest-framework django-registration api docker cookiecuter tox pytest
     ''',
     zip_safe=False,
     test_suite='setuptest.setuptest.SetupTestSuite',

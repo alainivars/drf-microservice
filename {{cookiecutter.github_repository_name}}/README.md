@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.org/alainivars/drf-microservice.png?branch=master)](https://travis-ci.org/alainivars/drf-microservice)
-[![PyPI version](https://badge.fury.io/py/drf-microservice.svg)](https://badge.fury.io/py/drf-microservice)
-[![Documentation Status](https://readthedocs.org/projects/drf-microservice/badge/?version=latest)](http://alpha-vantage.readthedocs.io/en/latest/?badge=latest)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Percentage of issues still open")
-[![Coverage Status](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
+[![Build Status](https://travis-ci.org/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}.png?branch=master)](https://travis-ci.org/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}})
+[![PyPI version](https://badge.fury.io/py/{{cookiecutter.github_repository_name}}.svg)](https://badge.fury.io/py/{{cookiecutter.github_repository_name}})
+[![Documentation Status](https://readthedocs.org/projects/{{cookiecutter.github_repository_name}}/badge/?version=latest)](http://{{cookiecutter.github_repository_name}}.readthedocs.io/en/latest/?badge=latest)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}.svg)](http://isitmaintained.com/project/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}} "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}.svg)](http://isitmaintained.com/project/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}} "Percentage of issues still open")
+[![Coverage Status](https://coveralls.io/repos/github/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}/badge.svg?branch=master)](https://coveralls.io/github/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}?branch=master)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![PyPi wheel](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
 
@@ -12,39 +12,41 @@
 # drf-microservice
 A DRF microservice
 
+!!! IN PRODUCTION, use only the TokenAuthentication !!!
+
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
 
 ### Releases Notes
 
-    - 0.6.0: total refactoring for add cookiecutter 
-    - 0.5.2: fix depencies security alert
+    - 0.6.0: start to productionize and add cookiecutter 
+    - 0.5.2: fix dendencies security alert
     - 0.5.1: fix some document presentation on github and pypi
     - 0.5.0: Initial publication version
 
 ### AWS secret required
 ```shell
-APPNAME_USERNAME_PASSWD => a client API password
+{{cookiecutter.github_repository_name}}_USERNAME_PASSWD => a client API password
 SECRET_KEY => the secret key
 ```
 ### ENV required
 ```shell
 AWS_REGION_NAME => default="eu-east-1"
-AWS_APPNAME_SECRET_NAME =>The name of the secret bucket
+AWS_{{cookiecutter.github_repository_name}}_SECRET_NAME =>The name of the secret bucket
 ```
 ## To install
 todo
 ```shell
 git clone xxx
 cd xxx
-python3 -m venv /pass/to/venev
+python3 -m venv /pass_to/venv/{{cookiecutter.github_repository_name}}
 ```
 - for bash, zsh
 ```shell
-source /pass/to/venev/bin/activate
+source /pass_to/venv/{{cookiecutter.github_repository_name}}/bin/activate
 ```
 - for fish
 ```shell
-source /pass/to/venev/bin/activate.fish
+source /pass_to/venv/{{cookiecutter.github_repository_name}}/bin/activate.fish
 ```
 python setup.py test
 python manage.py migrate
@@ -55,13 +57,13 @@ SECRET_KEY=my_secret_key python manage.py test
 ```
 - for fish
 ```shell
-env SECRET_KEY=my_secret_key python manage.py createsuperuser
+/usr/bin/env SECRET_KEY=my_secret_key python manage.py createsuperuser
 ```
 - then run it
 ```shell
 SECRET_KEY=my_secret_key python manage.py runserver
 ```
-- if you have any proble or you want enable the debug mode
+- if you have any problem or you want enable the debug mode
 ```shell
 ENABLE_DEBUG=1
 ```
@@ -96,7 +98,7 @@ python setup.py test
 ```
 or by
 ```shell
-DJANGO_SETTINGS_MODULE={{cookiecutter.app_name}}.config.local SECRET_KEY=my_secret_key pytest
+DJANGO_SETTINGS_MODULE={{cookiecutter.github_repository_name}}.config.local SECRET_KEY=my_secret_key pytest
 ```
 
 ## Security check
@@ -127,16 +129,16 @@ docker-compose up
 
 ### DONE
 
-    - support basic auth
+    - support basic auth removed
     - support token auth
     - endpoint json file POST,GET
     - endpoint login/logout
     - endpoint get tocken
 
 ### TODO
-    - AWS ssm secret
+    - AWS ssm secret and Kms
     - add getSentry support
-    - endpoint json file DELETE,PUT?
+    - endpoint json file DELETE, PUT?
     - add some strong auth
     - create differents version:
         - S3
