@@ -85,7 +85,7 @@ Then open
 ```web
 http://127.0.0.1:8000/docs/
 ```
-## testing
+## Testing
 You can run the tests by:
 ```shell
 SECRET_KEY=my_secret_key python manage.py test
@@ -125,31 +125,40 @@ If you want to change the port binding, it's here...
 docker-compose up
 ```
 
-### DONE
-
+### Functionalities DONE
     - support basic auth
     - support token auth
     - endpoint json file POST,GET
     - endpoint login/logout
     - endpoint get tocken
+    - postgreSQL support
 
-### TODO
+### DevOps tools DONE
+    - the docker-image file
+    - the docker-compose file
+    - endpoint get status Icinga2
+
+#### Functionalities TODO
     - AWS ssm secret
-    - add getSentry support
     - endpoint json file DELETE,PUT?
-    - add some strong auth
     - create differents version:
-        - S3
-        - RDS
-        - postgreSQL
-        - Redis
-        - Aerospike
+        - Aws S3 support (in progress)
+        - Aws RDS support
+        - Aws Elastisearch support
+        - Redis support
+        - Aerospike support
         - ... 
 
-#### for different use-case
-    - create the docker-image file
-    - create the ansible file
-    - create the terraform file
-    - create the kubertes file
-    - create the Juju file
+#### DevOps tools TODO
+    - the terraform file AWS (in progress)
+    - the terraform file GCD
+    - the terraform file Azure
+    - add getSentry support
+    - add Aws Cloudwatch support
+    - the ansible file AWS
+    - the ansible file GCD
+    - the ansible file Azure
+    - the Juju file AWS
+    - the Juju file GCD
+    - the Juju file Azure
 
