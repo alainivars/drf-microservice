@@ -5,7 +5,7 @@ python:
 sudo: false
 
 env:
-    - TOX_ENV=py36-django211
+    - TOX_ENV=py36-django222
     - TOX_ENV=coverage_combine
     - TOX_ENV=docs
 
