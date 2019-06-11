@@ -1,6 +1,6 @@
 # Core
 pytz==2019.1
-Django==2.2
+Django==2.2.2
 #django-configurations==2.1
 
 # Rest apis
