@@ -33,7 +33,6 @@ setup(
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Framework :: Django :: 2.1',
-        'License :: OSI Approved :: Apache License, Version 2.0 (Apache-2.0)',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'Operating System :: OS Independent',
