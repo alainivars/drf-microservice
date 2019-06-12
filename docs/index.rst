@@ -1,15 +1,46 @@
 Welcome to drf-microservice cookiecutter's documentation!
 =========================================================
 
-[![](https://travis-ci.org/alainivars/drf-microservice.png?branch=master)](https://travis-ci.org/alainivars/drf-microservice)
-[![](https://badge.fury.io/py/drf-microservice.svg)](https://badge.fury.io/py/drf-microservice)
-[![](https://readthedocs.org/projects/drf-microservice/badge/?version=latest)](http://alpha-vantage.readthedocs.io/en/latest/?badge=latest)
-[![](http://isitmaintained.com/badge/resolution/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Average time to resolve an issue")
-[![](http://isitmaintained.com/badge/open/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Percentage of issues still open")
-[![](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
-![](https://img.shields.io/pypi/pyversions/Django.svg)
-[![](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
+.. image:: https://api.travis-ci.org/alainivars/drf-microservice.svg?branch=master
+   :target: http://travis-ci.org/alainivars/drf-microservice
+   :alt: Build status
+
+.. image:: https://coveralls.io/repos/alainivars/drf-microservice/badge.svg?branch=devel
+   :target: https://coveralls.io/r/alainivars/drf-microservice?branch=devel
+   :alt: Test coverage status
+
+.. image:: https://requires.io/github/alainivars/drf-microservice/requirements.svg?branch=master
+   :target: https://requires.io/github/alainivars/drf-microservice/requirements/?branch=master
+   :alt: Requirements Status
+
+.. image:: https://img.shields.io/pypi/dm/drf-microservice.svg
+   :target: https://pypi.python.org/pypi/drf-microservice/
+   :alt: pypi download
+
+.. image:: https://img.shields.io/pypi/pyversions/drf-microservice.svg
+   :target: https://pypi.python.org/pypi/drf-microservice/
+   :alt: python supported
+
+.. image:: https://img.shields.io/pypi/l/drf-microservice.svg
+   :target: https://pypi.python.org/pypi/drf-microservice/
+   :alt: licence
+
+.. image:: https://img.shields.io/pypi/v//drf-microservice.svg
+   :target: https://pypi.python.org/pypi/drf-microservice
+   :alt: PyPi version
+
+.. image:: https://landscape.io/github/alainivars/drf-microservice/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/alainivars/drf-microservice/master
+   :alt: Code Health
+
+.. image:: https://readthedocs.org/projects/drf-microservice/badge/?version=latest
+   :target: https://readthedocs.org/projects/drf-microservice/?badge=latest
+   :alt: Documentation status
+
+.. image:: https://pypip.in/wheel/drf-microservice/badge.svg
+   :target: https://pypi.python.org/pypi/drf-microservice/
+   :alt: PyPi wheel
+
 
 
 # About drf-microservice Cookiescutter
@@ -17,13 +48,15 @@ drf-microservice is a ready-to-use API skeleton, Cookiescutter generates it, add
 It sounds simple and it is. 
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
 
-### Releases Notes
+Releases Notes
+==============
     - 0.6.0: total refactoring for add cookiecutter 
     - 0.5.2: fix depencies security alert
     - 0.5.1: fix some document presentation on github and pypi
     - 0.5.0: Initial publication version
 
-## To setup
+To setup
+========
 If needed install [cookiecutter](https://github.com/audreyr/cookiecutter):
 ```bash
 pip install cookiecutter
@@ -86,7 +119,8 @@ ENABLE_DEBUG=1
 ```
 
 
-## API
+API
+===
 To see the documentation for the API
 In development mode, login at
 ```shell
@@ -104,7 +138,8 @@ Then open
 ```web
 http://127.0.0.1:8000/docs/
 ```
-## Testing
+Testing
+=======
 You can run the tests by:
 ```shell
 SECRET_KEY=my_secret_key python manage.py test
@@ -118,32 +153,39 @@ or by
 DJANGO_SETTINGS_MODULE={{cookiecutter.app_name}}.config.local SECRET_KEY=my_secret_key pytest
 ```
 
-## Security check
+Security check
+==============
 Before dockerization for deployment to production, don't forget to check if by
 ```shell
 SECRET_KEY=my_secret_key python manage.py check --deploy 
 ```
 
-### if you Use Aws
-#### Aws secret required ???
+If you Use Aws
+==============
+Aws secret required ???
+==============
 ```shell
 APPNAME_USERNAME_PASSWD => a client API password
 SECRET_KEY => the secret key
 ```
-#### Aws Env required
+Aws Env required
+================
 ```shell
 AWS_REGION_NAME => default="eu-east-1"
 AWS_APPNAME_SECRET_NAME =>The name of the secret bucket
 ```
 
-### Build and run the image with Docker
+Build and run the image with Docker
+===================================
 
-#### Build the Docker image:
+Build the Docker image:
+=======================
 ````shell
 docker build -t my-drf -f Dockerfile.drf-microservice .
 docker build -t my-nginx -f Dockerfile.nginx .
 ````
-#### Run the container:
+Run the container:
+==================
 ````shell
 docker network create my-network
 docker run -d --name drf --net my-network -v /app my-drf
@@ -152,12 +194,14 @@ docker run -d --name nginx --net my-network -p "5000:80" my-nginx
 If you want to change the port binding, it's here...
 
 
-### Build and run wit docker-compose
+Build and run wit docker-compose
+================================
 ```shell
 docker-compose up
 ```
 
-### Functionalities DONE
+Functionalities DONE
+====================
     - support basic auth
     - support token auth
     - endpoint json file POST,GET
@@ -165,12 +209,14 @@ docker-compose up
     - endpoint get tocken
     - postgreSQL support
 
-### DevOps tools DONE
+DevOps tools DONE
+=================
     - the docker-image configuration file
     - the docker-compose configuration file
     - endpoint get status Icinga2
 
-#### Functionalities TODO
+Functionalities TODO
+====================
     - AWS ssm secret
     - endpoint json file DELETE,PUT?
     - create differents version:
@@ -181,7 +227,8 @@ docker-compose up
         - Aerospike support
         - ... 
 
-#### DevOps tools TODO
+DevOps tools TODO
+=================
     - the Packer configuration file  (in progress)
     - the Terraform configuration file AWS (in progress)
     - the Terraform configuration file GCD
