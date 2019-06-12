@@ -2,16 +2,16 @@ Welcome to drf-microservice cookiecutter's documentation!
 =========================================================
 
 .. image:: https://api.travis-ci.org/alainivars/drf-microservice.svg?branch=master
-   :target: http://travis-ci.org/alainivars/drf-microservice
-   :alt: Build status
+    :target: http://travis-ci.org/alainivars/drf-microservice
+    :alt: Build status
 
-.. image:: https://coveralls.io/repos/alainivars/drf-microservice/badge.svg?branch=devel
-   :target: https://coveralls.io/r/alainivars/drf-microservice?branch=devel
-   :alt: Test coverage status
+.. image:: https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master
+    :target: https://coveralls.io/github/alainivars/drf-microservice?branch=master
+    :alt: Test coverage status
 
 .. image:: https://requires.io/github/alainivars/drf-microservice/requirements.svg?branch=master
-   :target: https://requires.io/github/alainivars/drf-microservice/requirements/?branch=master
-   :alt: Requirements Status
+    :target: https://requires.io/github/alainivars/drf-microservice/requirements/?branch=master
+    :alt: Requirements Status
 
 .. image:: https://img.shields.io/pypi/dm/drf-microservice.svg
    :target: https://pypi.python.org/pypi/drf-microservice/
