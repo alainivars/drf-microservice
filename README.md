@@ -9,16 +9,12 @@
 [![PyPi wheel](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
 
 
-# drf-microservice
-A DRF microservice
-
-An API skeleton ready to use, Cookiescutter generate it, you will add your endpoints, tests it, package it and validate it on stage and deploy it.
-That look like simple and it's. I was tired to re-invent the weel all the time and now it's done.
- 
+# About drf-microservice Cookiescutter
+drf-microservice is a ready-to-use API skeleton, Cookiescutter generates it, add your endpoints, test it, package it, validate it on stage and deploy it.
+It sounds simple and it is. 
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
 
 ### Releases Notes
-
     - 0.6.0: total refactoring for add cookiecutter 
     - 0.5.2: fix depencies security alert
     - 0.5.1: fix some document presentation on github and pypi

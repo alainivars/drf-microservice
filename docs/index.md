@@ -13,7 +13,6 @@ Welcome to drf-microservice cookiecutter's documentation!
 
 
 # About drf-microservice Cookiescutter
-
 drf-microservice is a ready-to-use API skeleton, Cookiescutter generates it, add your endpoints, test it, package it, validate it on stage and deploy it.
 It sounds simple and it is. 
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
