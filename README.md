@@ -15,6 +15,7 @@ It sounds simple and it is.
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
 
 ### Releases Notes
+    - 0.6.1: Update dependencies 
     - 0.6.0: total refactoring for add cookiecutter 
     - 0.5.2: fix depencies security alert
     - 0.5.1: fix some document presentation on github and pypi
@@ -72,14 +73,14 @@ source .tox/py36-django222/bin/activate.fish
 - for bash, zsh
 ```shell
 SECRET_KEY=my_secret_key 
-python setup.py makemigration
+python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```
 - for fish
 ```shell
 env SECRET_KEY=my_secret_key 
-python setup.py makemigration
+python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser
 ```

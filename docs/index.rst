@@ -51,7 +51,8 @@ Something disturb you in the code? Don't hesitate to submit a pull request and c
 
 Releases Notes
 ==============
-    - 0.6.0: total refactoring for add cookiecutter 
+    - 0.6.1: Update dependencies
+    - 0.6.0: total refactoring for add cookiecutter
     - 0.5.2: fix depencies security alert
     - 0.5.1: fix some document presentation on github and pypi
     - 0.5.0: Initial publication version
@@ -151,7 +152,7 @@ You can run the tests by ::
 or by ::
 
     python setup.py test
-```
+
 or by ::
 
     DJANGO_SETTINGS_MODULE={{cookiecutter.app_name}}.config.local SECRET_KEY=my_secret_key pytest

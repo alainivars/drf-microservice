@@ -1,9 +1,11 @@
 django-setuptest
-pygments>=2.3.1
-pytest>=4.4.1
+pygments>=2.4.2
+pytest>=4.6.3
 pytest-django>=3.4.8
 pytest-pep8>=1.0.6
 pytest-cov
 coverage>=4.5.3
 pycodestyle
 recommonmark
+sphinx
+readthedocs-sphinx-ext

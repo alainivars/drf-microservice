@@ -10,7 +10,7 @@ with open(os.path.join(here, 'README.md')) as f:
 
 setup(
     name='{{cookiecutter.github_repository_name}}',
-    version='0.6.0',
+    version='0.6.1',
     author='Alain IVARS',
     author_email='{{cookiecutter.email}}',
     url='http://github.com/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}',
