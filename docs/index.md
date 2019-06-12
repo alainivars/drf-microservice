@@ -1,41 +1,30 @@
-[![Build Status](https://travis-ci.org/alainivars/drf-microservice.png?branch=master)](https://travis-ci.org/alainivars/drf-microservice)
-[![PyPI version](https://badge.fury.io/py/drf-microservice.svg)](https://badge.fury.io/py/drf-microservice)
-[![Documentation Status](https://readthedocs.org/projects/drf-microservice/badge/?version=latest)](http://alpha-vantage.readthedocs.io/en/latest/?badge=latest)
-[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Average time to resolve an issue")
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Percentage of issues still open")
-[![Coverage Status](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![PyPi wheel](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
+Welcome to drf-microservice cookiecutter's documentation!
+=========================================================
+
+[![](https://travis-ci.org/alainivars/drf-microservice.png?branch=master)](https://travis-ci.org/alainivars/drf-microservice)
+[![](https://badge.fury.io/py/drf-microservice.svg)](https://badge.fury.io/py/drf-microservice)
+[![](https://readthedocs.org/projects/drf-microservice/badge/?version=latest)](http://alpha-vantage.readthedocs.io/en/latest/?badge=latest)
+[![](http://isitmaintained.com/badge/resolution/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Average time to resolve an issue")
+[![](http://isitmaintained.com/badge/open/alainivars/drf-microservice.svg)](http://isitmaintained.com/project/alainivars/drf-microservice "Percentage of issues still open")
+[![](https://coveralls.io/repos/github/alainivars/drf-microservice/badge.svg?branch=master)](https://coveralls.io/github/alainivars/drf-microservice?branch=master)
+![](https://img.shields.io/pypi/pyversions/Django.svg)
+[![](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![](https://pypip.in/wheel/drf-microservice/badge.svg)](https://pypi.python.org/pypi/drf-microservice/)
 
 
-# drf-microservice
-A DRF microservice
+# About drf-microservice Cookiescutter
 
-An API skeleton ready to use, Cookiescutter generate it, you will add your endpoints, tests it, package it and validate it on stage and deploy it.
-That look like simple and it's. I was tired to re-invent the weel all the time and now it's done.
- 
+drf-microservice is a ready-to-use API skeleton, Cookiescutter generates it, add your endpoints, test it, package it, validate it on stage and deploy it.
+It sounds simple and it is. 
 Something disturb you in the code? Don't hesitate to submit a pull request and contribute.
 
 ### Releases Notes
-
     - 0.6.0: total refactoring for add cookiecutter 
     - 0.5.2: fix depencies security alert
     - 0.5.1: fix some document presentation on github and pypi
     - 0.5.0: Initial publication version
 
-### AWS secret required
-```shell
-APPNAME_USERNAME_PASSWD => a client API password
-SECRET_KEY => the secret key
-```
-### ENV required
-```shell
-AWS_REGION_NAME => default="eu-east-1"
-AWS_APPNAME_SECRET_NAME =>The name of the secret bucket
-```
 ## To setup
-
 If needed install [cookiecutter](https://github.com/audreyr/cookiecutter):
 ```bash
 pip install cookiecutter
@@ -135,6 +124,19 @@ Before dockerization for deployment to production, don't forget to check if by
 ```shell
 SECRET_KEY=my_secret_key python manage.py check --deploy 
 ```
+
+### if you Use Aws
+#### Aws secret required ???
+```shell
+APPNAME_USERNAME_PASSWD => a client API password
+SECRET_KEY => the secret key
+```
+#### Aws Env required
+```shell
+AWS_REGION_NAME => default="eu-east-1"
+AWS_APPNAME_SECRET_NAME =>The name of the secret bucket
+```
+
 ### Build and run the image with Docker
 
 #### Build the Docker image:
