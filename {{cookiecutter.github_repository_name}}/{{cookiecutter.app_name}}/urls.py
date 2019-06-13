@@ -13,27 +13,31 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.urls import path
 from django.contrib import admin
-from rest_framework import routers
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls
-from {{cookiecutter.app_name}}.rest import views_users
 from {{cookiecutter.app_name}}.rest.views import status_api, Icinga2API, FileAPI
 
-router = routers.DefaultRouter()
-router.register(r'users', views_users.UserViewSet)
-router.register(r'groups', views_users.GroupViewSet)
-
 urlpatterns = [
-    # path('admin/', admin.site.urls),
-    url(r'^', include(router.urls)),
-    url(r'^rest-auth/', include('rest_auth.urls')),
-    url(r'^docs/', include_docs_urls(title='My API title')),
-    url(r'^get_auth_token/$', rest_framework_views.obtain_auth_token,
+    path('admin/', admin.site.urls),
+
+    # Authentication, Authorization, Users, Groups
+    url(r'^api-auth/', include('rest_auth.urls')),
+    url(r'^api-auth-token/$', rest_framework_views.obtain_auth_token,
         name='get_auth_token'),
+
+    # Documentation
+    url(r'^docs/', include_docs_urls(title='My API title')),
+
+    # Probe live control
     path('icinga/', status_api, name='icinga'),
     path('icinga2/', Icinga2API.as_view(), name='icinga2'),
-    path('project/api/v1/file', FileAPI.as_view(), name='api_file'),
-]
+
+    # the API
+    path('api/v1/file', FileAPI.as_view(), name='api_file'),
+    # Some media files if you need it else remove it
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,9 +1,7 @@
 import json
 
 from django.conf import settings
-from django.contrib.auth import authenticate
 from django.http import JsonResponse
-from rest_framework import generics
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -12,20 +10,10 @@ from rest_framework import status
 from {{cookiecutter.app_name}}.rest.serializers import FileToFilesystemSerializer, UserSerializer
 
 
-class UserCreate(generics.CreateAPIView):
-    serializer_class = UserSerializer
-
-
-class LoginView(APIView):
-    def post(self, request):
-        username = request.data.get("username")
-        password = request.data.get("password")
-        user = authenticate(username=username, password=password)
-        if user:
-            return Response({"token": user.auth_token.key})
-        else:
-            return Response({"error": "Wrong Credentials"},
-                            status=status.HTTP_400_BAD_REQUEST)
+"""
+Official drf doc here:
+https://www.django-rest-framework.org/api-guide/requests/#authenticators
+"""
 
 
 @api_view(['GET'])
