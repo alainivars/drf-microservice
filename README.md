@@ -96,7 +96,7 @@ ENABLE_DEBUG=1
 
 
 ## API
-To see the documentation for the API
+To see the Dynamic documentation for the API
 Login at
 ```shell
 curl --request POST \
@@ -125,7 +125,9 @@ or by if BasicAuthentication is disabled
 curl --request GET \
   --url http://127.0.0.1:8000/docs/ \
   --header 'authorization: Token 400a4e55c729ec899c9f6ac07818f2f21e3b4143'
-  ```
+```
+![Dynamic documentation](media/docs.png)
+
 ## Testing
 You can run the tests by:
 ```shell
