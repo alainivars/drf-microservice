@@ -97,22 +97,35 @@ ENABLE_DEBUG=1
 
 ## API
 To see the documentation for the API
-In development mode, login at
+Login at
 ```shell
 curl --request POST \
-  --url http://127.0.0.1:8000/rest-auth/login/ \
-  --header 'authorization: Basic YWRtaW46YWRtaW4=' \
+  --url http://127.0.0.1:8000/api-auth/login/ \
   --header 'content-type: application/json' \
-}'
+  --data '{
+	"username": "admin",
+	"password": "admin"
+	}'
 ```
 Actually the default mode is "development" (same to the state of this project)
 in that mode a default login is the the db with username='admin' password='admin'
 you will get back in return your token.
- 
-Then open 
-```web
-http://127.0.0.1:8000/docs/
+```shell
+{"key":"400a4e55c729ec899c9f6ac07818f2f21e3b4143"}
 ```
+ 
+Then open to see the full auto-generated documentation of you API 
+```web
+curl --request GET \
+  --url http://127.0.0.1:8000/docs/ \
+  --header 'authorization: Basic YWRtaW46YWRtaW4='
+```
+or by if BasicAuthentication is disabled
+```web
+curl --request GET \
+  --url http://127.0.0.1:8000/docs/ \
+  --header 'authorization: Token 400a4e55c729ec899c9f6ac07818f2f21e3b4143'
+  ```
 ## Testing
 You can run the tests by:
 ```shell
