@@ -150,6 +150,7 @@ SECRET_KEY=my_secret_key python manage.py check --deploy
 ### Build and run the image with Docker
 
 #### Build the Docker image:
+# WORK IN PROGRESS
 ````shell
 docker build -t my-drf -f Dockerfile.drf-microservice .
 docker build -t my-nginx -f Dockerfile.nginx .
@@ -177,8 +178,6 @@ docker-compose up
     - postgreSQL support
 
 ### DevOps tools DONE
-    - the docker-image configuration file
-    - the docker-compose configuration file
     - endpoint get status Icinga2
 
 #### Functionalities TODO
@@ -193,8 +192,10 @@ docker-compose up
         - ... 
 
 #### DevOps tools TODO
-    - the Packer configuration file  (in progress)
-    - the Terraform configuration file AWS (in progress)
+    - the docker-image configuration file (in progress)
+    - the docker-compose configuration file (in progress)
+    - the Packer configuration file
+    - the Terraform configuration file AWS
     - the Terraform configuration file GCD
     - the Terraform configuration file Azure
     - add getSentry support
