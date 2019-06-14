@@ -11,7 +11,7 @@ source_suffix = {
 }
 master_doc = 'index'
 project = u'drf-microservice'
-copyright = u'2017-2019'
+copyright = u'2019'
 version = 'latest'
 release = 'latest'
 exclude_patterns = ['_build']

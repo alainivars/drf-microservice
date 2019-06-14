@@ -9,14 +9,14 @@ with open(os.path.join(here, 'README.md')) as f:
     long_description = f.read().strip()
 
 setup(
-    name='{{cookiecutter.github_repository_name}}',
+    name='drf-microservice',
     version='0.1.0',
-    author='{{cookiecutter.github_username}}',
-    author_email='{{cookiecutter.email}}',
-    url='http://github.com/{{cookiecutter.github_username}}/{{cookiecutter.github_repository_name}}',
+    author='alainivars',
+    author_email='alainivars@gmail.com',
+    url='http://github.com/alainivars/drf-microservice',
     license='Apache License 2.0',
     description='''
-    {{cookiecutter.description}}
+    The description of my drf api
     ''',
     packages=find_packages(),
     long_description=long_description,

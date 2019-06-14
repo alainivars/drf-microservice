@@ -1,6 +1,8 @@
 # Core
 pytz==2019.1  # django dependency
 Django==2.2.2
+#gunicorn==19.9.0
+#newrelic==4.12.0.120
 
 # Storages
 psycopg2-binary==2.7.7
@@ -24,5 +26,3 @@ coreschema==0.0.4  # coreapi dependency
 itypes==1.1.0  # coreapi dependency
 uritemplate==3.0.0  # coreapi dependency
 coreapi==2.3.3
-
-

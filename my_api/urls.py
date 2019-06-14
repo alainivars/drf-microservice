@@ -4,7 +4,7 @@ The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
 Examples:
 Function views
-    1. Add an import:  from {{cookiecutter.github_repository_name}} import views
+    1. Add an import:  from drf-microservice import views
     2. Add a URL to urlpatterns:  path('', views.home, name='home')
 Class-based views
     1. Add an import:  from other_app.views import Home
@@ -20,7 +20,7 @@ from django.urls import path
 from django.contrib import admin
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls
-from {{cookiecutter.app_name}}.rest.views import status_api, Icinga2API, FileAPI
+from my_api.rest.views import status_api, Icinga2API, FileAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -39,5 +39,6 @@ urlpatterns = [
 
     # the API
     path('api/v1/file', FileAPI.as_view(), name='api_file'),
+
     # Some media files if you need it else remove it
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

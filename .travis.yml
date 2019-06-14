@@ -5,7 +5,8 @@ python:
 sudo: false
 
 env:
-    - TOX_ENV=pep8
+    - TOX_ENV=py36-django211
+    - TOX_ENV=coverage_combine
     - TOX_ENV=docs
 
 matrix:

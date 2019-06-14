@@ -6,7 +6,7 @@ from rest_framework import status
 from rest_framework.reverse import reverse
 from rest_framework.test import APIClient
 
-from {{cookiecutter.app_name}}.rest.tests.base import BaseTestCase
+from my_api.rest.tests.base import BaseTestCase
 
 
 class ViewTestCase(BaseTestCase):
@@ -50,7 +50,7 @@ class ViewTestCase(BaseTestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_api_file_with_credential_good_key(self):
-        with open('./{{cookiecutter.app_name}}/rest/tests/files/file_ok.json') as f:
+        with open('./my_api/rest/tests/files/file_ok.json') as f:
             file_content = f.read()
             json_file_content = json.loads(file_content)
         response = self.basics_auth_post(
@@ -71,7 +71,7 @@ class ViewTestCase(BaseTestCase):
         self.assertEqual(response.data, json_file_content)
 
     def test_api_file_with_credential_wrong_key(self):
-        with open('./{{cookiecutter.app_name}}/rest/tests/files/file_ko.json') as f:
+        with open('./my_api/rest/tests/files/file_ko.json') as f:
             file_content = f.read()
             json_file_content = json.loads(file_content)
         response = self.basics_auth_post(
@@ -84,7 +84,7 @@ class ViewTestCase(BaseTestCase):
         self.assertEqual(response.data[0], "'file' is a required field.")
 
     def test_api_file_with_token_good_key(self):
-        with open('./{{cookiecutter.app_name}}/rest/tests/files/file_ok.json') as f:
+        with open('./my_api/rest/tests/files/file_ok.json') as f:
             file_content = f.read()
             json_file_content = json.loads(file_content)
         response = self.token_auth_post(
@@ -103,7 +103,7 @@ class ViewTestCase(BaseTestCase):
         self.assertEqual(response.data, json_file_content)
 
     def test_api_file_with_token_wrong_key(self):
-        with open('./{{cookiecutter.app_name}}/rest/tests/files/file_ko.json') as f:
+        with open('./my_api/rest/tests/files/file_ko.json') as f:
             file_content = f.read()
             json_file_content = json.loads(file_content)
         response = self.token_auth_post(

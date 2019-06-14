@@ -3,7 +3,7 @@ import unittest
 from rest_framework import status
 from rest_framework.reverse import reverse
 
-from {{cookiecutter.app_name}}.rest.tests.base import BaseTestCase
+from my_api.rest.tests.base import BaseTestCase
 
 
 class BasicTestCase(BaseTestCase):

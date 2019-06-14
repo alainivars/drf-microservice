@@ -9,14 +9,14 @@ with open(os.path.join(here, 'README.md')) as f:
     long_description = f.read().strip()
 
 setup(
-    name='drf-microservice',
-    version='0.6.1',
+    name='my-drf-microservice',
+    version='0.7.0',
     author='Alain IVARS',
     author_email='alainivars@gmail.com',
-    url='http://github.com/alainivars/drf-microservice',
+    url='http://github.com/alainivars/my-drf-microservice',
     license='Apache License 2.0',
     description='''
-    Create a REST API endpoints with Authentication and Registration.
+    A REST API endpoints with Authentication and Registration.
     Read the README.md for more information.
     ''',
     packages=find_packages(),
