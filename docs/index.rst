@@ -1,33 +1,6 @@
 Welcome to drf-microservice website documentation!
 ##################################################
 
-This document refers to version |release|
-
-.. warning::
-    Please note that this Alpha Project is documented lighly. If you have any questions please contact us via
-    {{cookiecutter.email}} - we'd love to update the documentation and answer your question!
-
-**************
-Contents
-**************
-
-.. toctree::
-    :maxdepth: 2
-
-
-
-**************************
-Indices and tables
-**************************
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-
-Status!
-=======
-
 .. image:: https://api.travis-ci.org/alainivars/drf-microservice.svg?branch=master
     :target: http://travis-ci.org/alainivars/drf-microservice
     :alt: Build status
