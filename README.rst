@@ -45,6 +45,7 @@ About Drf-microservice
 ======================
 drf-microservice is a ready-to-use API skeleton:
     - `Cookiescutter-drf-microservice`_ generated it,
+And it help you to:
     - add your endpoints,
     - test it,
     - package it,
