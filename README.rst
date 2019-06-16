@@ -67,6 +67,7 @@ When you will find a bug or propose an evolution create a ticket on:
 - `Issue Drf-microservice`_ if it's about a functionality in the generated drf process
 
 Online documentation is here on `readthedoc`_
+Online source code available on `Github`_
 
 
 .. _`Cookiescutter-drf-microservice`: https://github.com/alainivars/cookiecutter-drf-microservice

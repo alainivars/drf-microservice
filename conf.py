@@ -11,8 +11,8 @@ source_suffix = {
 }
 master_doc = 'index'
 project = u'drf-microservice'
-copyright = u'2019'
-version = 'latest'
+copyright = u'2017-2019'
+version = 'v0.7.1'
 release = 'latest'
 exclude_patterns = ['_build']
 pygments_style = 'sphinx'

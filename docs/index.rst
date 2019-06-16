@@ -5,8 +5,8 @@
 
 .. include:: links.inc
 
-Welcome to DjangoRestFramework Microservice's documentation!
-============================================================
+DjangoRestFramework Microservice's documentation!
+=================================================
 
 .. image:: https://api.travis-ci.org/alainivars/drf-microservice.svg?branch=master
     :target: http://travis-ci.org/alainivars/drf-microservice
@@ -71,6 +71,7 @@ Online source code available on `Github`_
    :maxdepth: 2
    :caption: Contents:
 
+   usage
    functionalities
    devops_tools
    interact_with_api
