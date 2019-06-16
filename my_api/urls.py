@@ -18,6 +18,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.urls import path
 from django.contrib import admin
+from django.views import defaults
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls
 from my_api.rest.views import status_api, Icinga2API, FileAPI
@@ -42,3 +43,15 @@ urlpatterns = [
 
     # Some media files if you need it else remove it
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    # To debug the error pages during development
+    urlpatterns += [
+        url(r'^400/$', defaults.bad_request),
+        url(r'^403/$', defaults.permission_denied),
+        url(r'^404/$', defaults.page_not_found),
+        url(r'^500/$', defaults.server_error),
+    ]
+    # static/media files
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
