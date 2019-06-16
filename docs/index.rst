@@ -64,8 +64,8 @@ It sounds simple and it is. Take a look at `Drf-microservice`_ it's now generate
 
 Something disturb you in the code? Don't hesitate to open a an issue and contribute.
 
-Online documentation is here on `readthedoc`_
-
+Online documentation is here on `Readthedoc`_
+Online source code available on `Github`_
 
 .. toctree::
    :maxdepth: 2
