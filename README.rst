@@ -57,7 +57,8 @@ It sounds simple and it is. Take a look at `Drf-microservice`_ it's now generate
 
 Something disturb you in the code? Don't hesitate to open a an issue and contribute.
 
-.. include:: docs/releases_notes.rst
+.. include:: docs/releases_notes
+  :start-after: inclusion-marker-do-not-remove
 
 Bugs and evolution policies
 ===========================
