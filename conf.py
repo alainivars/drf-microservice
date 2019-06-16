@@ -9,7 +9,7 @@ source_suffix = {
     '.txt': 'markdown',
     '.md': 'markdown',
 }
-master_doc = 'README'
+master_doc = 'index'
 project = u'drf-microservice'
 copyright = u'2019'
 version = 'latest'
