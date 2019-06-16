@@ -1,5 +1,12 @@
-Welcome to drf-microservice documentation!
-==========================================
+.. DjangoRestFramework Microservice documentation master file, created by
+   sphinx-quickstart on Sun Jun 16 17:55:07 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. include:: links.inc
+
+Welcome to DjangoRestFramework Microservice's documentation!
+============================================================
 
 .. image:: https://api.travis-ci.org/alainivars/drf-microservice.svg?branch=master
     :target: http://travis-ci.org/alainivars/drf-microservice
@@ -41,8 +48,8 @@ Welcome to drf-microservice documentation!
    :target: https://pypi.python.org/pypi/drf-microservice/
    :alt: PyPi wheel
 
-About Drf-microservice
-======================
+What is Drf-microservice
+------------------------
 drf-microservice is a ready-to-use API skeleton:
     - `Cookiescutter-drf-microservice`_ generated it,
 And you:
@@ -57,15 +64,26 @@ It sounds simple and it is. Take a look at `Drf-microservice`_ it's now generate
 
 Something disturb you in the code? Don't hesitate to open a an issue and contribute.
 
-.. include:: docs/releases_notes.rst
-
-Bugs and evolution policies
-===========================
-When you will find a bug or propose an evolution create a ticket on:
-
-- `Issue Cookiescutter-drf-microservice`_ if it's about the generation process
-- `Issue Drf-microservice`_ if it's about a functionality in the generated drf process
-
 Online documentation is here on `readthedoc`_
 
-.. include:: links.inc
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   functionalities
+   devops_tools
+   interact_with_api
+   testing
+   security_check
+   docker
+   aws
+
+   releases_notes 
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
