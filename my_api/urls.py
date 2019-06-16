@@ -31,7 +31,7 @@ urlpatterns = [
         name='get_auth_token'),
 
     # Documentation
-    url(r'^docs/', include_docs_urls(title='My API title')),
+    url(r'^docs/', include_docs_urls(title='drf-microservice API')),
 
     # Probe live control
     path('icinga/', status_api, name='icinga'),
