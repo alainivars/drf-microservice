@@ -16,6 +16,7 @@ import sys
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.append(os.path.abspath('..'))  # add fot next line
 from docs import version  # noqa: E402 pylint: disable=unidiomatic-typecheck
+the_version = version.__version__
 sys.path.pop()  # remove it now because it kill sphinx on readthedoc !!!
 
 
@@ -26,7 +27,7 @@ copyright = '2019, Alain Ivars'
 author = 'Alain Ivars'
 
 # The full version, including alpha/beta/rc tags
-release = version.__version__
+release = the_version
 
 
 # -- General configuration ---------------------------------------------------
