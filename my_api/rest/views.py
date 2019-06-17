@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-from my_api import __version__
+from docs.version import __version__
 from my_api.rest.serializers import FileToFilesystemSerializer
 
 
