@@ -30,4 +30,3 @@ ENV ENABLE_DEBUG=1
 EXPOSE 8000
 
 CMD ["uwsgi", "--ini", "/opt/drf-microservice/uwsgi.ini"]
-#CMD ["gunicorn", "--workers=2", "--bind=0.0.0.0:8000", "project:project"]
