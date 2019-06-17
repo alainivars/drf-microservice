@@ -3,6 +3,7 @@
 import os
 from setuptools import setup, find_packages
 
+import my_api
 
 here = os.path.dirname(os.path.abspath(__file__))
 with open(os.path.join(here, 'README.rst')) as f:
@@ -10,7 +11,7 @@ with open(os.path.join(here, 'README.rst')) as f:
 
 setup(
     name='drf-microservice',
-    version='0.7.0',
+    version=my_api.__version__,
     author='Alain IVARS',
     author_email='alainivars@gmail.com',
     url='http://github.com/alainivars/drf-microservice',
