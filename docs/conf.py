@@ -14,9 +14,9 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath('.'))
-sys.path.append(os.path.abspath('..'))
-
-from docs import version
+sys.path.append(os.path.abspath('..'))  # add fot next line
+from docs import version  # noqa: E402 pylint: disable=unidiomatic-typecheck
+sys.path.pop()  # remove it now because it kill sphinx on readthedoc !!!
 
 
 # -- Project information -----------------------------------------------------
