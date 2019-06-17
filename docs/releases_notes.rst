@@ -1,3 +1,6 @@
+
+.. include:: links.inc
+
 Releases Notes
 ==============
     - 0.7.1: doc modular & less duplicated, the docker config file

@@ -11,13 +11,25 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.abspath('.'))
-sys.path.append(os.path.abspath('..'))  # add fot next line
-from docs import version  # noqa: E402 pylint: disable=unidiomatic-typecheck
-the_version = str(version.__version__)
-sys.path.pop()  # remove it now because it kill sphinx on readthedoc !!!
+
+
+def read(f):  # from DRF setup
+    return open(f, 'r', encoding='utf-8').read()
+
+
+def get_version(package):  # from DRF setup
+    """
+    Return package version as listed in `__version__` in `init.py`.
+    """
+    init_py = open(os.path.join(package, 'version.py')).read()
+    return re.search("__version__ = ['\"]([^'\"]+)['\"]", init_py).group(1)
+
+
+version = get_version('.')
 
 
 # -- Project information -----------------------------------------------------
@@ -27,7 +39,7 @@ copyright = '2019, Alain Ivars'
 author = 'Alain Ivars'
 
 # The full version, including alpha/beta/rc tags
-release = the_version
+release = version
 
 
 # -- General configuration ---------------------------------------------------
@@ -39,7 +51,7 @@ extensions = [
     "pygments_pytest",
     "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
-    "sphinx.ext.intersphinx",
+    # "sphinx.ext.intersphinx",
     "sphinx.ext.todo",
     "sphinx.ext.viewcode",
 ]
@@ -53,8 +65,9 @@ templates_path = [
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
+    'conf.py',
     'links.inc',
-	'_build', 
+    '_build',
 	'Thumbs.db', 
 	'.DS_Store'
 ]
