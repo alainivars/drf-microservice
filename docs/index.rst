@@ -36,6 +36,10 @@ DjangoRestFramework Microservice's documentation!
    :target: https://pypi.python.org/pypi/drf-microservice
    :alt: PyPi version
 
+.. image:: https://codeclimate.com/github/alainivars/drf-microservice/badges/gpa.svg
+    :target: https://codeclimate.com/github/alainivars/drf-microservice
+    :alt: Code Climate
+
 .. image:: https://landscape.io/github/alainivars/drf-microservice/master/landscape.svg?style=flat
    :target: https://landscape.io/github/alainivars/drf-microservice/master
    :alt: Code Health
