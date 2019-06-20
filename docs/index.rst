@@ -40,10 +40,6 @@ DjangoRestFramework Microservice's documentation!
    :target: https://codeclimate.com/github/alainivars/drf-microservice/maintainability
    :alt: Maintainability
 
-.. image:: https://landscape.io/github/alainivars/drf-microservice/master/landscape.svg?style=flat
-   :target: https://landscape.io/github/alainivars/drf-microservice/master
-   :alt: Code Health
-
 .. image:: https://readthedocs.org/projects/drf-microservice/badge/?version=latest
    :target: https://readthedocs.org/projects/drf-microservice/?badge=latest
    :alt: Documentation status
