@@ -46,7 +46,7 @@ setup(
     # https://pypi.org/classifiers/
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
-        'Framework :: Django :: 2.1',
+        'Framework :: Django :: 2.2',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
         'Operating System :: OS Independent',
