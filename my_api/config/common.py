@@ -73,7 +73,7 @@ TESTING = 'test' or '-k e2e' in sys.argv
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(int(os.getenv('ENABLE_DEBUG', 0)))
-
+DEBUG_URL = 0
 # Allowed hosts
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 if DEBUG:
@@ -87,6 +87,7 @@ ADMINS = (
 )
 
 REST_FRAMEWORK = {
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': int(os.getenv('DJANGO_PAGINATION_LIMIT', 10)),
     'DATETIME_FORMAT': '%Y-%m-%dT%H:%M:%S%z',
