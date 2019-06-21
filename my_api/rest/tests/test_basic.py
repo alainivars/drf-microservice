@@ -8,8 +8,23 @@ from my_api.rest.tests.base import BaseTestCase
 
 class BasicTestCase(BaseTestCase):
 
+    def test_api_handler400(self):
+        response = self.client.get(reverse('handler400'))
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_api_handler403(self):
+        response = self.client.get(reverse('handler403'))
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+
+    def test_api_handler404(self):
+        response = self.client.get(reverse('handler404'))
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+    def test_api_handler500(self):
+        response = self.client.get(reverse('handler500'))
+        self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
+
     def test_authorization_is_enforced(self):
-        """Test that the api has user authorization."""
         response = self.client.get(reverse('icinga'))
         self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
