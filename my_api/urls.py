@@ -18,10 +18,13 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.urls import path
 from django.contrib import admin
-from django.views import defaults
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls
+
 from my_api.rest.views import status_api, Icinga2API, FileAPI
+if settings.DEBUG_URL:
+    from my_api.rest.views import \
+        api_handler400, api_handler403, api_handler404, api_handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,14 +47,20 @@ urlpatterns = [
     # Some media files if you need it else remove it
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-if settings.DEBUG:
+if settings.DEBUG_URL:
     # To debug the error pages during development
     urlpatterns += [
-        url(r'^400/$', defaults.bad_request),
-        url(r'^403/$', defaults.permission_denied),
-        url(r'^404/$', defaults.page_not_found),
-        url(r'^500/$', defaults.server_error),
+        url(r'^400/$', api_handler400, name='handler400'),
+        url(r'^403/$', api_handler403, name='handler403'),
+        url(r'^404/$', api_handler404, name='handler404'),
+        url(r'^500/$', api_handler500, name='handler500'),
     ]
     # static/media files
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+handler400 = 'my_api.rest.views.api_handler400'
+handler403 = 'my_api.rest.views.api_handler403'
+handler404 = 'my_api.rest.views.api_handler404'
+handler500 = 'my_api.rest.views.api_handler500'
+

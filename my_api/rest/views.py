@@ -98,3 +98,31 @@ class FileAPI(APIView):
     #     :return: the key to get to that file after.
     #     """
     #     raise NotImplemented()
+
+
+def api_handler400(request, *args, **kwargs):
+    data = {
+        'error': 'That\'s a BAD REQUEST, try again (400)'
+    }
+    return JsonResponse(data, status=status.HTTP_400_BAD_REQUEST)
+
+
+def api_handler403(request, *args, **kwargs):
+    data = {
+        'error': 'This is FORBIDDEN, you certainly forgot to take the right Token (403)'
+    }
+    return JsonResponse(data, status=status.HTTP_403_FORBIDDEN)
+
+
+def api_handler404(request, *args, **kwargs):
+    data = {
+        'error': 'I do NOT FOUND it! sorry ...(404)'
+    }
+    return JsonResponse(data, status=status.HTTP_404_NOT_FOUND)
+
+
+def api_handler500(request, *args, **kwargs):
+    data = {
+        'error': 'INTERNAL SERVER ERROR, Allo Huston we got a problem! (500)'
+    }
+    return JsonResponse(data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
