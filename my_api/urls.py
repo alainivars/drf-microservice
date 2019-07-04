@@ -63,4 +63,3 @@ handler400 = 'my_api.rest.views.api_handler400'
 handler403 = 'my_api.rest.views.api_handler403'
 handler404 = 'my_api.rest.views.api_handler404'
 handler500 = 'my_api.rest.views.api_handler500'
-
