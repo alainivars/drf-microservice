@@ -3,6 +3,7 @@
 
 Releases Notes
 ==============
+    - 0.7.2: Add Swagger to CoreApi, compliance with OpenApi V2, Api code generator
     - 0.7.1: doc modular & less duplicated, the docker config file
     - 0.7.0: `Cookiescutter-drf-microservice`_ got it own separate repository
     - 0.6.1: Update dependencies

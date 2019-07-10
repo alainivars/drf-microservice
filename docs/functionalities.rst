@@ -10,7 +10,16 @@ Functionalities
     - endpoint get tocken
     - endpoint get status and running version
     - postgreSQL support
-    - doc modular & less duplicated
+    - doc Swagger-OpenApi v2:
+        this exposes 4 new endpoints:
+            A JSON view of your API specification at /swagger/openapi.json
+            A YAML view of your API specification at /swagger/openapi.yaml
+            A swagger-ui view of your API specification at /swagger/openapi/
+            A ReDoc view of your API specification at /swagger/redoc/
+        - `API validation badge`_
+        - `Code generation`_ with `Swagger codeGen`_
+        And soo much more, take a look at:
+        https://github.com/axnsan12/drf-yasg
 
 Todo
 ----

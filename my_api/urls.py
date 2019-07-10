@@ -18,21 +18,59 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.urls import path
 from django.contrib import admin
+from rest_framework import permissions
 from rest_framework.authtoken import views as rest_framework_views
 from rest_framework.documentation import include_docs_urls
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
 
 from my_api.rest.views import status_api, Icinga2API, FileAPI
 if settings.DEBUG_URL:
     from my_api.rest.views import \
         api_handler400, api_handler403, api_handler404, api_handler500
 
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API",
+        default_version='v1',
+        description="DRF Microservice RESTFUL",
+        terms_of_service="/terms/",
+        contact=openapi.Contact(email="alain.ivars@gmail.com"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
 urlpatterns = [
+    url(
+        r'^swagger/openapi(?P<format>\.json|\.yaml)$',
+        schema_view.without_ui(cache_timeout=0),
+        name='schema-json-or-yaml'
+    ),
+    url(
+        r'^swagger/openapi/$',
+        schema_view.with_ui('swagger', cache_timeout=0),
+        name='schema-openapi-ui'
+    ),
+    url(
+        r'^swagger/redoc/$',
+        schema_view.with_ui('redoc', cache_timeout=0),
+        name='schema-redoc'
+    ),
+]
+
+urlpatterns += [
     path('admin/', admin.site.urls),
 
     # Authentication, Authorization, Users, Groups
     url(r'^api-auth/', include('rest_auth.urls')),
-    url(r'^api-auth-token/$', rest_framework_views.obtain_auth_token,
-        name='get_auth_token'),
+    url(
+        r'^api-auth-token/$',
+        rest_framework_views.obtain_auth_token,
+        name='get_auth_token'
+    ),
 
     # Documentation
     url(r'^docs/', include_docs_urls(title='drf-microservice API')),
