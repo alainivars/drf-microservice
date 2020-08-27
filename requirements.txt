@@ -1,41 +1,27 @@
 # Core
-pytz==2019.1  # django dependency
-Django==2.2.9
-utils2devops>=0.1.4  # the latest alway
+Django==3.1
+utils2devops>=0.1.4
 #gunicorn==19.9.0
 #newrelic==4.12.0.120
 
 # Storages
-psycopg2-binary==2.8.3
+psycopg2-binary==2.8.5
 
 # Rest apis
-djangorestframework==3.9.4
-django-filter==2.1.0
-six==1.12.0  # django-rest-auth pytest dependency
-django-rest-auth==0.9.5
+djangorestframework==3.11.1
+django-filter==2.3.0
+dj-rest-auth==1.1.1
 
 # AWS
-docutils==0.14  # botocore dependency
-jmespath==0.9.4  # boto3 botocore dependency
-boto3==1.9.169
-botocore==1.12.169
-s3transfer==0.2.1
+boto3==1.14.49
+botocore==1.17.49
+s3transfer==0.3.3
 
 # Dynamic Documentations
-coreschema==0.0.4  # coreapi dependency
-itypes==1.1.0  # coreapi dependency
-uritemplate==3.0.0  # coreapi dependency
-coreapi==2.3.3  # drf-yasg dependency
-drf-yasg==1.16.0
+drf-yasg==1.17.1
 
 # static documentation
-pygments-pytest==1.2.0
-recommonmark==0.5.0  # sphinx dependency to parse .md files
-MarkupSafe>=1.1.1  # Jinja2 dependency
-Jinja2>=2.10.1  # sphinx dependency
-Sphinx==2.1.1
+pygments-pytest==2.1.0
+Sphinx==3.2.1
 readthedocs-sphinx-ext
-chardet>=3.0.4  # requests dependency
-idna>=2.8  # requests dependency
-urllib3>=1.25.3  # request dependency
-requests>=2.22.0
+requests==2.24.0

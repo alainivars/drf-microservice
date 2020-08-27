@@ -14,9 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
-from django.conf.urls import url, include
 from django.conf.urls.static import static
-from django.urls import path
+from django.urls import path, re_path
 from django.contrib import admin
 from rest_framework import permissions
 from rest_framework.authtoken import views as rest_framework_views
@@ -44,17 +43,17 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    url(
+    re_path(
         r'^swagger/openapi(?P<format>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=0),
         name='schema-json-or-yaml'
     ),
-    url(
+    re_path(
         r'^swagger/openapi/$',
         schema_view.with_ui('swagger', cache_timeout=0),
         name='schema-openapi-ui'
     ),
-    url(
+    re_path(
         r'^swagger/redoc/$',
         schema_view.with_ui('redoc', cache_timeout=0),
         name='schema-redoc'
@@ -65,15 +64,15 @@ urlpatterns += [
     path('admin/', admin.site.urls),
 
     # Authentication, Authorization, Users, Groups
-    url(r'^api-auth/', include('rest_auth.urls')),
-    url(
+    # re_path(r'^api-auth/', include('rest_auth.urls')),
+    re_path(
         r'^api-auth-token/$',
         rest_framework_views.obtain_auth_token,
         name='get_auth_token'
     ),
 
     # Documentation
-    url(r'^docs/', include_docs_urls(title='drf-microservice API')),
+    re_path(r'^docs/', include_docs_urls(title='drf-microservice API')),
 
     # Probe live control
     path('icinga/', status_api, name='icinga'),
@@ -88,10 +87,10 @@ urlpatterns += [
 if settings.DEBUG_URL:
     # To debug the error pages during development
     urlpatterns += [
-        url(r'^400/$', api_handler400, name='handler400'),
-        url(r'^403/$', api_handler403, name='handler403'),
-        url(r'^404/$', api_handler404, name='handler404'),
-        url(r'^500/$', api_handler500, name='handler500'),
+        re_path(r'^400/$', api_handler400, name='handler400'),
+        re_path(r'^403/$', api_handler403, name='handler403'),
+        re_path(r'^404/$', api_handler404, name='handler404'),
+        re_path(r'^500/$', api_handler500, name='handler500'),
     ]
     # static/media files
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

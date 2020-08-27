@@ -17,7 +17,7 @@ run tests::
 + An virtualenv is already ready for you at ::
 
     tox -l
-    py36-django222
+    py38-django31
 
 + or you can create your ::
 
@@ -25,7 +25,7 @@ run tests::
 
 + Activate it ::
 
-    source .tox/py36-django222/bin/activate
+    source .tox/py38-django31/bin/activate
 
 + Then ::
 
