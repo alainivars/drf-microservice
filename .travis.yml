@@ -1,13 +1,13 @@
 dist: xenial
 language: python
 python:
-  - "3.6"
+  - "3.8"
 
 sudo: false
 
 env:
     - TOX_ENV=pep8
-    - TOX_ENV=py36-django222
+    - TOX_ENV=py38-django31
     - TOX_ENV=docs
 
 matrix:
