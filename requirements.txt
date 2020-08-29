@@ -12,9 +12,9 @@ dj-rest-auth==1.1.1
 # Dynamic Documentations
 drf-yasg==1.17.1
 
-#-r requirements/requirements/aws.txt
-#-r requirements/requirements/postgres.txt
-#-r requirements/requirements/tests.txt
--r requirements/requirements/docgen.txt
-#-r requirements/requirements/codestyle.txt
-#-r requirements/requirements/packaging.txt
+#-r requirements/aws.txt
+#-r requirements/postgres.txt
+#-r requirements/tests.txt
+-r requirements/docgen.txt
+#-r requirements/codestyle.txt
+#-r requirements/packaging.txt
