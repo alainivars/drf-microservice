@@ -187,11 +187,11 @@ else:
         }
     else:
         if os.getenv('DOCKER_CONTAINER'):
-            DB_HOST = 'db'
+            DB_HOST = 'db-pg'
         else:
             DB_HOST = os.getenv('DB_HOST', '127.0.0.1')
         DB_USER = os.getenv('DB_USER', 'user')
-        DB_PASS = secrets.get('db_password', 'passwd')
+        DB_PASS = secrets.get('DB_PASS', 'passwd')
         DB_NAME = os.getenv('DB_NAME', 'project_db')
         DB_PORT = os.getenv('DB_PORT', '5432')
         DATABASES = {
@@ -208,7 +208,7 @@ else:
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 AUTH_PASSWORD_VALIDATORS = [
-    {   # todo; here for the fanatic pep8 line len max 79, tell me how to solve it???
+    {   # todo: here for the fanatic pep8 line len max 79, tell me how to solve it???
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {

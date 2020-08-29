@@ -1,24 +1,29 @@
 
 .. include:: links.inc
 
-Build and run the image with Docker 3 different way
-===================================================
-Note: All of them are for development and test env ONLY
+Build and run the image with Docker
+===================================
 
-Build and run the image, all with docker-compose
-------------------------------------------------
-Here docker-compose do every thing but you can't choice:
-    - the container name
-    - the image name
+Pre-condition, set the required credential and secret::
+
+    # postgres test or prod but not the most secure way
+    export DB_USER=postgres
+    export DB_PASS=postgres
+    export DB_NAME=postgres
+    export DB_PORT=5432
+    # django test or prod but not the most secure way
+    export SECRET_KEY=secret
 
 Build and run with docker-compose::
 
-    docker-compose up
+    docker-compose -f docker-compose.pg.yml up
 
 Delete the container::
 
     docker-compose stop && docker-compose rm -f
 
+
+.. warning:: WORK IN PROGRESS AFTER THIS, not existing actually
 
 1 Build the image with Docker and run with docker-compose
 ---------------------------------------------------------
@@ -42,8 +47,6 @@ Run the container as service::
 
     docker run -d -v "/home/a/repositories/dj/drf-microservice:/drf-microservice" -p 8000:8000 --name drf-ms-sqlite2 drf-ms-sqlite:latest
 
-
-.. warning:: WORK IN PROGRESS AFTER THIS, not existing actually
 
 Build the Docker image::
 
