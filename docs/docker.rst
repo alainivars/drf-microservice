@@ -10,13 +10,34 @@ Build and run with docker-compose::
 
 Then login, see API documentation
 
+Build the Docker image::
+
+    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
+
+Run the container::
+
+    docker-compose up
+
+Run the container as service::
+
+    docker-compose up -d
+
+Delete the container::
+
+    docker-compose rm -f
+
 
 .. warning:: WORK IN PROGRESS, not existing actually
 
 Build the Docker image::
 
-    docker build -t my-drf -f Dockerfile.drf-microservice .
-    docker build -t my-nginx -f Dockerfile.nginx .
+    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
+    #docker build -t my-nginx -f Dockerfile.nginx .
+
+Initialise the application::
+
+    docker run -v "$PWD/drf-microservice:/opt/drf-microservice" drf-ms_sqlite:latest django-admin startproject my_api .
+    docker run --noreload --rm -v "$PWD/drf-microservice:/opt/drf-microservice" -e DJANGO_MANAGEMENT_JOB=makemigrations drf-ms_sqlite
 
 Run the container::
 

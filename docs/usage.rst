@@ -44,3 +44,41 @@ nut if you don't you need to deploy the static files::
 - then run it ::
 
     SECRET_KEY=my_secret_key python manage.py runserver
+
+- the existing endpoints in production are::
+
+    /swagger/openapi(?P<format>\.json|\.yaml)
+    /swagger/openapi/
+    /swagger/redoc/
+    /admin/
+    /api-auth/
+    /api-auth-token/
+    /docs/
+    /icinga/
+    /icinga2/
+    /api/v1/file/
+    /media/(?P<path>.*)
+    /400/
+    /403/
+    /404/
+    /500/
+    /media/(?P<path>.*)
+
+- added endpoints for tests are::
+
+    ^swagger/openapi(?P<format>\.json|\.yaml)$ [name='schema-json-or-yaml']
+    ^swagger/openapi/$ [name='schema-openapi-ui']
+    ^swagger/redoc/$ [name='schema-redoc']
+    admin/
+    ^api-auth/
+    ^api-auth-token/$ [name='get_auth_token']
+    ^docs/
+    icinga/ [name='icinga']
+    icinga2/ [name='icinga2']
+    api/v1/file [name='api_file']
+    ^media/(?P<path>.*)$
+    ^400/$ [name='handler400']
+    ^403/$ [name='handler403']
+    ^404/$ [name='handler404']
+    ^500/$ [name='handler500']
+    ^media/(?P<path>.*)$

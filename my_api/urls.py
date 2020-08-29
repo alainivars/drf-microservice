@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from django.contrib import admin
 from rest_framework import permissions
 from rest_framework.authtoken import views as rest_framework_views
@@ -64,7 +64,7 @@ urlpatterns += [
     path('admin/', admin.site.urls),
 
     # Authentication, Authorization, Users, Groups
-    # re_path(r'^api-auth/', include('rest_auth.urls')),
+    re_path(r'^api-auth/', include('dj_rest_auth.urls')),
     re_path(
         r'^api-auth-token/$',
         rest_framework_views.obtain_auth_token,

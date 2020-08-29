@@ -1,0 +1,19 @@
+# Core
+utils2devops
+#gunicorn
+#newrelic
+
+# Rest apis
+djangorestframework
+django-filter
+dj-rest-auth
+
+# Dynamic Documentations
+drf-yasg
+
+# test
+pytest
+pytest-django
+tox
+#Pygments
+#pygments-pytest

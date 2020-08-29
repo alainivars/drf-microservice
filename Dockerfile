@@ -6,27 +6,18 @@
 
 FROM python:3.6
 
-# update system and install uwsgi
-RUN apt-get update && \
-    apt-get install -y && \
-    pip3 install uwsgi
+# The enviroment variable ensures that the python output is set straight
+# to the terminal with out buffering it first
+ENV PYTHONUNBUFFERED 1
 
-# create target dir and copy requirement in
-RUN mkdir -p /opt/drf-microservice
-COPY requirements.txt /opt/drf-microservice/
+# create root directory for our project in the container
+RUN mkdir /drf-microservice
 
-# install all dependencies of the app
-RUN pip3 install -r /opt/drf-microservice/requirements.txt
+# Set the working directory to /drf-microservice
+WORKDIR /drf-microservice
 
-# copy the app cd change WORKDIR to app root
-COPY . /opt/drf-microservice
-WORKDIR /opt/drf-microservice
+# Copy the current directory contents into the container at /drf-microservice
+ADD . /drf-microservice/
 
-ENV DJANGO_ENV=stage
-ENV DOCKER_CONTAINER=1
-ENV SECRET_KEY=local
-ENV ENABLE_DEBUG=1
-
-EXPOSE 8000
-
-CMD ["uwsgi", "--ini", "/opt/drf-microservice/uwsgi.ini"]
+# Install any needed packages specified in requirements.txt
+RUN pip install -r requirements.txt
