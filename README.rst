@@ -21,8 +21,8 @@ Welcome to drf-microservice documentation!
    :target: https://pypi.python.org/pypi/drf-microservice/
    :alt: python supported
 
-.. image:: https://img.shields.io/pypi/l/drf-microservice.svg
-   :target: https://pypi.python.org/pypi/drf-microservice/
+.. image:: https://img.shields.io/github/license/alainivars/drf-microservice
+   :target: https://pypi.python.org/pypi/drf-microservice/blob/master/LICENSE
    :alt: licence
 
 .. image:: https://img.shields.io/pypi/v/drf-microservice.svg

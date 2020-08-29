@@ -76,7 +76,7 @@ Online source code available on `Github`_
    testing
    security_check
    docker
-   docker-pg
+   docker_pg
    aws
 
    releases_notes 
