@@ -2,7 +2,7 @@ version: '3'
 
 services:
   drf-ms-sqlite:
-    build: .
+    image: drf-ms-sqlite:latest
     command: bash -c "export SECRET_KEY=local; python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     container_name: drf-ms-sqlite
     volumes:

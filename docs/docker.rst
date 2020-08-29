@@ -1,14 +1,27 @@
 
 .. include:: links.inc
 
-Build and run the image with Docker
-===================================
+Build and run the image with Docker 3 different way
+===================================================
+Note: All of them are for development and test env ONLY
+
+Build and run the image, all with docker-compose
+------------------------------------------------
+Here docker-compose do every thing but you can't choice:
+    - the container name
+    - the image name
 
 Build and run with docker-compose::
 
     docker-compose up
 
-Then login, see API documentation
+Delete the container::
+
+    docker-compose rm -f
+
+
+1 Build the image with Docker and run with docker-compose
+---------------------------------------------------------
 
 Build the Docker image::
 
@@ -16,15 +29,18 @@ Build the Docker image::
 
 Run the container::
 
-    docker-compose up
+    docker-compose up -f docker-compose.1.yml
+
+2 Build and run the image with Docker
+--------------------------------------
+
+Build the Docker image::
+
+    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
 
 Run the container as service::
 
-    docker-compose up -d
-
-Delete the container::
-
-    docker-compose rm -f
+    docker run -d -v "/home/a/repositories/dj/drf-microservice:/drf-microservice" -p 8000:8000 --name drf-ms-sqlite2 drf-ms-sqlite:latest
 
 
 .. warning:: WORK IN PROGRESS, not existing actually
