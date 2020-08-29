@@ -19,7 +19,6 @@ sys.path.insert(0, os.path.abspath('.'))
 
 version = get_version('.')
 
-
 # -- Project information -----------------------------------------------------
 
 project = 'DjangoRestFramework Microservice'
@@ -28,7 +27,6 @@ author = 'Alain Ivars'
 
 # The full version, including alpha/beta/rc tags
 release = version
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -56,10 +54,9 @@ exclude_patterns = [
     'conf.py',
     'links.inc',
     '_build',
-	'Thumbs.db', 
-	'.DS_Store'
+    'Thumbs.db',
+    '.DS_Store'
 ]
-
 
 # -- Options for HTML output -------------------------------------------------
 

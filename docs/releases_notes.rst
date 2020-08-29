@@ -3,6 +3,10 @@
 
 Releases Notes
 ==============
+    - 0.8.3: Update documentation
+    - 0.8.2: fix docker config file and docker-compose file for postgres 12.4
+    - 0.8.1: fix docker config file and docker-compose file for sqlite
+    - 0.8.0: Update dependencies
     - 0.7.2: Add Swagger to CoreApi, compliance with OpenApi V2, Api code generator
     - 0.7.1: doc modular & less duplicated, the docker config file
     - 0.7.0: `Cookiescutter-drf-microservice`_ got it own separate repository
