@@ -7,29 +7,31 @@ Note: All of them are for development and test env ONLY
 
 Build and run the image, all with docker-compose
 ------------------------------------------------
-Here docker-compose do every thing but you can't choice:
-    - the container name
-    - the image name
+You will need docker-compose compatible 3.8+ format, version 1.25.5+
+https://github.com/docker/compose/releases/
 
 Build and run with docker-compose::
 
-    docker-compose up
+    docker-compose -f docker-compose.drf-ms-sqlite.yml up
 
-Delete the container::
 
-    docker-compose stop && docker-compose rm -f
+Delete the container, the network and the image::
 
+    docker-compose -f docker-compose.drf-ms-sqlite.yml rm -f
+    docker network rm drf-microservice_default
+    docker rmi drf-ms-sqlite
 
 1 Build the image with Docker and run with docker-compose
 ---------------------------------------------------------
 
 Build the Docker image::
 
-    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
+    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile .
 
 Run the container::
 
-    docker-compose up -f docker-compose.1.yml
+    export DJANGO_SETTINGS_MODULE=my_api.settings.local
+    docker-compose -f docker-compose.sqlite.yml up
 
 2 Build and run the image with Docker
 --------------------------------------

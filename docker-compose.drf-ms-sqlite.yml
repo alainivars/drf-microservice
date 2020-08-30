@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  drf-ms-sqlite:
+    build:
+      context: .
+      dockerfile: Dockerfile.drf-ms-sqlite
+    image: drf-ms-sqlite:latest
+    command: bash -c "export SECRET_KEY=local &&
+              export DJANGO_SETTINGS_MODULE=my_api.settings.local &&
+              python manage.py makemigrations &&
+              python manage.py migrate &&
+              python manage.py runserver 0.0.0.0:8000"
+    container_name: drf-ms-sqlite
+    volumes:
+      - .:/drf-microservice
+    ports:
+      - "8000:8000"
