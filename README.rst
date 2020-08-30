@@ -66,8 +66,8 @@ docker-compose
 # Stops, all the containers for a service:
     docker-compose down
 
-urls
-----
+urls::
+
     xx.xx.xx.xx:8000
     xx.xx.xx.xx:8000/admin/
     xx.xx.xx.xx:8000/swagger/openapi/

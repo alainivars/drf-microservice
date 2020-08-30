@@ -13,11 +13,9 @@
 import os
 import sys
 
-from utils2devops.tools.single_sourcing_package_version import get_version
+from docs.version import __version__
 
 sys.path.insert(0, os.path.abspath('.'))
-
-version = get_version('.')
 
 # -- Project information -----------------------------------------------------
 
@@ -26,7 +24,7 @@ copyright = '2019, Alain Ivars'
 author = 'Alain Ivars'
 
 # The full version, including alpha/beta/rc tags
-release = version
+release = __version__
 
 # -- General configuration ---------------------------------------------------
 
@@ -51,7 +49,6 @@ templates_path = [
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = [
-    'conf.py',
     'links.inc',
     '_build',
     'Thumbs.db',
