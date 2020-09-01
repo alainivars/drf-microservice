@@ -58,7 +58,7 @@ And it will help you to:
     - generate the documentation with Swagger-Coreapi,
     - test it with Tox,
     - package it Docker,
-    - deploy it (TODO with) Terraform or Ansible
+    - deploy it (docker-compose), for Terraform or Ansible have a look at https://github.com/alainivars/utils2devops
 
 Something disturb you in the code? Don't hesitate to open an issue and contribute.
 
