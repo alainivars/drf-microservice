@@ -1,0 +1,19 @@
+FROM python:3.8.3-alpine
+
+# PYTHONDONTWRITEBYTECODE: Prevents Python from writing pyc files to disc (equivalent to python -B option)
+# PYTHONUNBUFFERED: Prevents Python from buffering stdout and stderr (equivalent to python -u option)
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1
+
+WORKDIR /opt/services/drf_ms
+
+# install psycopg2 dependencies
+RUN apk update \
+    && apk add postgresql-dev gcc python3-dev musl-dev
+
+RUN pip install --upgrade pip
+COPY . /opt/services/drf_ms
+RUN pip install -r requirements/docker-base.txt -r requirements/postgres.txt
+
+#EXPOSE 8000
+#CMD ["gunicorn", "-c", "config/gunicorn/conf.py", "--bind", ":8000", "--chdir", "my_api", "'my_api.wsgi.application"]

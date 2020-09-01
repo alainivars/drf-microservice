@@ -6,62 +6,53 @@ Build and run the image with Docker
 
 Pre-condition, set the required credential and secret::
 
-    # postgres test or prod but not the most secure way
-    export DB_USER=postgres
-    export DB_PASS=postgres
-    export DB_NAME=postgres
+    # postgres
+    export POSTGRES_HOST=trust
+    export POSTGRES_HOST_AUTH_METHOD=trust
+    export POSTGRES_DB=postgres
+    export POSTGRES_USER=postgres
+    export POSTGRES_PASSWORD=postgres
+    # django postgres dev and test
+    export DB_ENGINE=django.db.backends.postgresql
+    export DB_HOST=127.0.0.1
     export DB_PORT=5432
-    # django test or prod but not the most secure way
-    export SECRET_KEY=secret
+    export DB_NAME=drfms_db
+    export DB_USER=drfms_user
+    export DB_PASS=drfms_pass
+    # django dev and test
+    export DJANGO_ENABLE_DEBUG=1
+    export DJANGO_SETTINGS_MODULE=my_api.settings.local
+    export DJANGO_SECRET_KEY=MyVerySecretKey
+    export DJANGO_SUPERUSER_USERNAME=superuser
+    export DJANGO_SUPERUSER_PASSWORD=password
+    export DJANGO_SUPERUSER_EMAIL=superuser@domain.local
 
 Build and run with docker-compose::
 
-    docker-compose -f docker-compose.pg.yml up
+    docker-compose -f docker-compose.drf_ms_pg.yml up --force-recreate
+    docker-compose -f docker-compose.drf_ms_pg.yml exec -u postgres db1_pg psql -c 'CREATE DATABASE drfms_db;'
+    docker-compose -f docker-compose.drf_ms_pg.yml exec -T -u postgres db1_pg psql drfms_db < db_pg_initiate.sql
+    docker-compose -f docker-compose.drf_ms_pg.yml exec drf_ms_pg python manage.py migrate --noinput
+    docker-compose -f docker-compose.drf_ms_pg.yml exec drf_ms_pg python manage.py collectstatic --noinput
+    docker-compose -f docker-compose.drf_ms_pg.yml exec drf_ms_pg python manage.py createsuperuser --username $DJANGO_SUPERUSER_USERNAME --email $DJANGO_SUPERUSER_EMAIL --noinput
+    docker-compose -f docker-compose.drf_ms_pg.yml down
 
-Delete the container::
+Now everything is fine, you can run it as service::
 
-    docker-compose stop && docker-compose rm -f
+    docker-compose -f docker-compose.drf_ms_pg.yml up -d
 
+Or Close and clean, remove All of the compose file, with permanents volume also::
 
-.. warning:: WORK IN PROGRESS AFTER THIS, not existing actually
+    docker-compose -f docker-compose.drf_ms_pg.yml down -v --rmi local --remove-orphans
+    or with also downloaded images
+    docker-compose -f docker-compose.drf_ms_pg.yml down -v --rmi all --remove-orphans
 
-1 Build the image with Docker and run with docker-compose
----------------------------------------------------------
+Or Close and clean, remove All of the compose file, except permanents volume (to save your data for future use)::
 
-Build the Docker image::
+    docker-compose -f docker-compose.drf_ms_pg.yml down --rmi local --remove-orphans
+    or with also downloaded images
+    docker-compose -f docker-compose.drf_ms_pg.yml down --rmi all --remove-orphans
 
-    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
+usefull cmds::
 
-Run the container::
-
-    docker-compose up -f docker-compose.1.yml
-
-2 Build and run the image with Docker
---------------------------------------
-
-Build the Docker image::
-
-    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
-
-Run the container as service::
-
-    docker run -d -v "/home/a/repositories/dj/drf-microservice:/drf-microservice" -p 8000:8000 --name drf-ms-sqlite2 drf-ms-sqlite:latest
-
-
-Build the Docker image::
-
-    docker build -t drf-ms-sqlite:latest --label drf-ms-sqlite -f Dockerfile.sqlite .
-    #docker build -t my-nginx -f Dockerfile.nginx .
-
-Initialise the application::
-
-    docker run -v "$PWD/drf-microservice:/opt/drf-microservice" drf-ms_sqlite:latest django-admin startproject my_api .
-    docker run --noreload --rm -v "$PWD/drf-microservice:/opt/drf-microservice" -e DJANGO_MANAGEMENT_JOB=makemigrations drf-ms_sqlite
-
-Run the container::
-
-    docker network create my-network
-    docker run -d --name drf --net my-network -v /app my-drf
-    docker run -d --name nginx --net my-network -p "5000:80" my-nginx
-
-If you want to change the port binding, it's here...
+    docker exec -it drf-microservice_db1_pg_1 psql -d drfms_db -U drfms_user

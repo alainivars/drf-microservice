@@ -35,7 +35,7 @@ run tests::
 
 - if you want enable the debug mode ::
 
-    ENABLE_DEBUG=1
+    DJANGO_ENABLE_DEBUG=1
 
 nut if you don't you need to deploy the static files::
 
@@ -58,27 +58,10 @@ nut if you don't you need to deploy the static files::
     /icinga2/
     /api/v1/file/
     /media/(?P<path>.*)
+
+- added endpoints for tests are::
+
     /400/
     /403/
     /404/
     /500/
-    /media/(?P<path>.*)
-
-- added endpoints for tests are::
-
-    ^swagger/openapi(?P<format>\.json|\.yaml)$ [name='schema-json-or-yaml']
-    ^swagger/openapi/$ [name='schema-openapi-ui']
-    ^swagger/redoc/$ [name='schema-redoc']
-    admin/
-    ^api-auth/
-    ^api-auth-token/$ [name='get_auth_token']
-    ^docs/
-    icinga/ [name='icinga']
-    icinga2/ [name='icinga2']
-    api/v1/file [name='api_file']
-    ^media/(?P<path>.*)$
-    ^400/$ [name='handler400']
-    ^403/$ [name='handler403']
-    ^404/$ [name='handler404']
-    ^500/$ [name='handler500']
-    ^media/(?P<path>.*)$

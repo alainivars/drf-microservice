@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+
+  nginx:
+    image: nginx:1.19.2
+    volumes:
+      - ./settings/nginx/conf.d:/etc/nginx/conf.d
+      - static:/opt/services/drf-ms/static
+      - media:/opt/services/drf-ms/media
+    networks:
+      - nginx_network
+    ports:
+      - 8080:80
+    depends_on:
+      - drf_ms_pg
+
+  db1_pg:
+    image: postgres:12.4-alpine
+    environment:
+      - POSTGRES_HOST
+      - POSTGRES_HOST_AUTH_METHOD
+      - POSTGRES_DB
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+    volumes:
+      - db1_pg_data:/var/lib/postgresql/data/
+    networks:
+      - db1_pg_network
+
+  drf_ms_pg:
+    restart: always
+    environment:
+      - DJANGO_SETTINGS_MODULE
+      - DJANGO_SECRET_KEY
+      - DJANGO_ENABLE_DEBUG
+      - DB_ENGINE
+      - DB_USER
+      - DB_PASS
+      - DB_NAME
+      - DB_PORT
+    build:
+      context: .
+      dockerfile: Dockerfile.python.drf_ms_pg
+    image: drf_ms_pg:latest
+    command: python manage.py runserver 0.0.0.0:8000
+# Work in progress to add all inside the docker-compose file
+#    command: >
+#      bash -c "sleep 5 &&
+#              python ./manage.py runserver 0.0.0.0:8000"
+#              apt-get update &&
+#              apt-get -y upgrade &&"
+#              apt-get install python3-pip python3-psycopg2 &&
+#              pip3 install -r requirements/docker-base.txt -r requirements/postgres.txt &&
+#             NEED THE CREATE USER AND DB HERE
+#              python ./manage.py makemigrations &&
+#              python ./manage.py migrate --noinput &&
+#             NEED THE CREATE DJANGO SUPERUSER HERE
+#              python ./manage.py collectstatic --noinput &&
+#              python ./manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/opt/services/drf-ms
+      - static:/opt/services/drf-ms/static
+      - media:/opt/services/drf-ms/media
+    networks:
+      - db1_pg_network
+      - nginx_network
+    ports:
+      - 8000:8000
+    depends_on:
+      - db1_pg
+
+networks:
+  db1_pg_network:
+  nginx_network:
+
+volumes:
+  db1_pg_data:
+  static:
+  media:

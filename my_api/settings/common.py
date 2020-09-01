@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 List of settings that the project as to have to be ready for production:
 
 - General settings:
-    - SECRET_KEY: the Django secret key
-    - ENABLE_DEBUG: False by default, set to 1 to enable it.
-    - ALLOWED_HOSTS: empty by default, use comma-separated list.
+    - DJANGO_SECRET_KEY: the Django secret key
+    - DJANGO_ENABLE_DEBUG: False by default, set to 1 to enable it.
+    - DJANGO_ALLOWED_HOSTS: empty by default, use comma-separated list.
     - LOGGING_CONFIG: default None.
     - TIME_ZONE: default 'UTC', list: http://pytz.sourceforge.net/#what-is-utc
     - PATH_TO_STORE_FILE: default BASE_DIR + '/files/'
@@ -63,7 +63,7 @@ PATH_TO_STORE_FILE = os.environ.get(
 os.makedirs(PATH_TO_STORE_FILE, exist_ok=True)
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 # or with a file
 # with open('/etc/secret_key.txt') as f:
 #     SECRET_KEY = f.read().strip()
@@ -72,10 +72,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 TESTING = 'test' or '-k e2e' in sys.argv
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(int(os.getenv('ENABLE_DEBUG', 0)))
+DEBUG = bool(int(os.getenv('DJANGO_ENABLE_DEBUG', 0)))
 DEBUG_URL = 0
 # Allowed hosts
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(' ')
 if DEBUG:
     ALLOWED_HOSTS.extend(['127.0.0.1', 'localhost', '0.0.0.0'])
 
@@ -169,41 +169,17 @@ if TESTING:
         }
     }
 else:
-    if DEBUG:
-        if os.getenv('DOCKER_CONTAINER'):
-            DB_HOST = 'db'
-        else:
-            DB_HOST = os.getenv('DB_HOST', '127.0.0.1')
-        DB_USER = os.getenv('DB_USER', 'user')
-        DB_PASS = os.getenv('DB_PASS', 'passwd')
-        DB_NAME = os.getenv('DB_NAME', 'project_db')
-        DB_PORT = os.getenv('DB_PORT', '5432')
-        # todo: change to postgres later, and refactor this part
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.sqlite3',
-                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            },
+    DATABASES = {
+        "default": {
+            "ENGINE": os.environ.get("DB_ENGINE", "django.db.backends.sqlite3"),
+            "NAME": os.environ.get("DB_NAME", os.path.join(BASE_DIR, "db_drf_ms.sqlite3")),
+            "USER": os.environ.get("DB_USER", "user"),
+            "PASSWORD": os.environ.get("DB_PASS", "passwd"),
+            "HOST": os.environ.get("DB_HOST", "127.0.0.1"),
+            "PORT": os.environ.get("DB_PORT", "5432"),
         }
-    else:
-        if os.getenv('DOCKER_CONTAINER'):
-            DB_HOST = 'db-pg'
-        else:
-            DB_HOST = os.getenv('DB_HOST', '127.0.0.1')
-        DB_USER = os.getenv('DB_USER', 'user')
-        DB_PASS = secrets.get('DB_PASS', 'passwd')
-        DB_NAME = os.getenv('DB_NAME', 'project_db')
-        DB_PORT = os.getenv('DB_PORT', '5432')
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                'HOST': DB_HOST,
-                'PORT': DB_PORT,
-                'NAME': DB_NAME,
-                'USER': DB_USER,
-                'PASSWORD': DB_PASS,
-            }
-        }
+    }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -234,12 +210,13 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/')
+print('STATIC_ROOT=', STATIC_ROOT)
 STATIC_URL = '/static/'
 
 # Some media files if you need it else remove it
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media/')
 MEDIA_URL = '/media/'
 
 # # Sentry

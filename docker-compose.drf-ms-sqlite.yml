@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.drf-ms-sqlite
     image: drf-ms-sqlite:latest
-    command: bash -c "export SECRET_KEY=local &&
+    command: bash -c "export DJANGO_SECRET_KEY=local &&
               export DJANGO_SETTINGS_MODULE=my_api.settings.local &&
               python manage.py makemigrations &&
               python manage.py migrate &&

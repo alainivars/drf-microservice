@@ -82,7 +82,7 @@ urlpatterns += [
     path('api/v1/file', FileAPI.as_view(), name='api_file'),
 
     # Some media files if you need it else remove it
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 if settings.DEBUG_URL:
     # To debug the error pages during development
@@ -92,9 +92,10 @@ if settings.DEBUG_URL:
         re_path(r'^404/$', api_handler404, name='handler404'),
         re_path(r'^500/$', api_handler500, name='handler500'),
     ]
-    # static/media files
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# static/media files
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 handler400 = 'my_api.rest.views.api_handler400'
 handler403 = 'my_api.rest.views.api_handler403'

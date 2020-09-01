@@ -5,7 +5,11 @@ Build and run the image with Docker 2 different way
 ===================================================
 In both case, after the run, open a console to the docker container to run::
 
-    export SECRET_KEY=local; export DJANGO_SETTINGS_MODULE=my_api.settings.local; python manage.py createsuperuser
+    docker images | grep drf-ms-sqlite
+    Get the container id and with it:
+    docker exec -it be64cad1af93 bash
+    And inside the remote console:
+    export DJANGO_SECRET_KEY=local; export DJANGO_SETTINGS_MODULE=my_api.settings.local; python manage.py createsuperuser
 
 Build and run the image, all with docker-compose
 ------------------------------------------------
