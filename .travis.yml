@@ -3,14 +3,12 @@ language: python
 python:
   - "3.8"
 
-sudo: false
-
 env:
     - TOX_ENV=pep8
-    - TOX_ENV=py38-django30
+    - TOX_ENV=py38-django31
     - TOX_ENV=docs
 
-matrix:
+jobs:
   #fast_finish: true
   allow_failures:
     - env: TOX_ENV=pep8
