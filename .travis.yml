@@ -7,7 +7,7 @@ sudo: false
 
 env:
     - TOX_ENV=pep8
-    - TOX_ENV=py38-django31
+    - TOX_ENV=py38-django30
     - TOX_ENV=docs
 
 matrix:
