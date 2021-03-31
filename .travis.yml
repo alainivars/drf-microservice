@@ -1,26 +1,50 @@
-dist: xenial
 language: python
-python:
-  - "3.8"
 
-env:
-    - TOX_ENV=pep8
-    - TOX_ENV=py38-django31
-    - TOX_ENV=docs
+sudo: false
 
-jobs:
-  #fast_finish: true
+matrix:
+  include:
+  - python: "3.7"
+    env: TOX_ENV=py37-django22
+    dist: xenial
+  - python: "3.7"
+    env: TOX_ENV=py37-django31
+    dist: xenial
+  - python: "3.7"
+    env: TOX_ENV=py37-djangomaster
+    dist: xenial
+  - python: "3.8"
+    env: TOX_ENV=py38-django22
+    dist: xenial
+  - python: "3.8"
+    env: TOX_ENV=py38-django31
+    dist: xenial
+  - python: "3.8"
+    env: TOX_ENV=py38-djangomaster
+    dist: xenial
+  - python: "3.9"
+    env: TOX_ENV=py39-django221
+    dist: xenial
+  - python: "3.9"
+    env: TOX_ENV=py39-django31
+    dist: xenial
+  - python: "3.9"
+    env: TOX_ENV=py39-djangomaster
+    dist: xenial
+  fast_finish: true
   allow_failures:
-    - env: TOX_ENV=pep8
     - env: TOX_ENV=coverage_combine
     - env: TOX_ENV=docs
+    - env: TOX_ENV=py39-djangomaster
+    - env: TOX_ENV=py38-djangomaster
+    - env: TOX_ENV=py37-djangomaster
 
 before_install:
     - pip install pytest pytest-cov
     - pip install coveralls
 
 install:
-    - pip install tox
+  - pip install tox
 
 script:
     - tox -e $TOX_ENV

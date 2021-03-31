@@ -27,10 +27,10 @@ setup(
     ''',
     zip_safe=False,
     include_package_data=True,
-    python_requires=">=3.6.*, !=3.7.*, !=3.8.*",
+    python_requires=">=3.7.*, !=3.8.*, !=3.9.*",
     # https://pypi.org/classifiers/
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 2 - Beta',
         'Framework :: Django :: 3.0',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
@@ -38,9 +38,9 @@ setup(
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Topic :: Internet :: WWW/HTTP'
     ],
 )

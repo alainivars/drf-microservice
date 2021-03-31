@@ -3,6 +3,7 @@
 
 Releases Notes
 ==============
+    - 1.0rc1: Release candidate for version 1.0, update dependencies
     - 0.8.4: Update documentation and fix docker-compose file for postgres 12.4
     - 0.8.3: Update documentation
     - 0.8.2: fix docker config file and docker-compose file for postgres 12.4
