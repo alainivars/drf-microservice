@@ -23,7 +23,7 @@ matrix:
     env: TOX_ENV=py38-djangomaster
     dist: xenial
   - python: "3.9"
-    env: TOX_ENV=py39-django221
+    env: TOX_ENV=py39-django22
     dist: xenial
   - python: "3.9"
     env: TOX_ENV=py39-django31
